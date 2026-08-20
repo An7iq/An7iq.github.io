@@ -20,12 +20,12 @@ export type ExperienceItem = {
   detailLines?: Localized<string[]>;
   advisors?: Localized<string[]>;
   advisorLabel?: Localized;
-  advisorHref?: string;
   isbn?: Localized;
   publicationHref?: string;
   summary: Localized;
   homeOrder?: number;
   homeRole?: Localized;
+  homeSubtitle?: Localized;
   homeOrg?: Localized;
   homeDateLabel?: Localized;
   sortOrder?: number;
@@ -105,6 +105,7 @@ export const experience: ExperienceItem[] = [
       en: "Tsinghua-affiliated Project",
       zh: "清华相关合作项目",
     },
+    location: { en: "China", zh: "中国" },
     advisors: {
       en: ["Dr Rui Li"],
       zh: ["李睿博士"],
@@ -117,9 +118,17 @@ export const experience: ExperienceItem[] = [
       en: "Integrated global ocean observations and Earth-system model outputs, harmonised physical and biogeochemical variables, assessed data consistency and spatial coverage, and prepared model-ready datasets for statistical and machine-learning analyses.",
       zh: "整合全球海洋观测数据与地球系统模式输出，对物理和生物地球化学变量进行统一整理，检查数据的一致性与空间覆盖，并构建适用于统计分析和机器学习建模的数据集。",
     },
+    homeRole: {
+      en: "Research Collaboration",
+      zh: "科研合作：海洋碳酸根数据整合",
+    },
+    homeSubtitle: {
+      en: "Ocean Carbonate-Ion Data Integration",
+      zh: "",
+    },
     homeOrg: {
-      en: "Tsinghua-affiliated Project · Dr Rui Li",
-      zh: "清华相关合作项目 · 李睿博士",
+      en: "Tsinghua-affiliated Project · China",
+      zh: "清华相关合作项目",
     },
     homeOrder: 3,
   },
@@ -414,7 +423,6 @@ export const experience: ExperienceItem[] = [
       en: "Academic mentor",
       zh: "项目导师",
     },
-    advisorHref: "https://math.nyu.edu/people/profiles/HOLLAND_David.html",
     summary: {
       en: "Developed a numerical modelling study of long-term wastewater transport and spatial dispersion in Pacific Ocean circulation.",
       zh: "开展太平洋海洋环流中废水长期输运与空间扩散的数值模拟研究。",

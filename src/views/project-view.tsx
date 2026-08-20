@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/section";
-import { ExternalIcon } from "@/components/icons";
 import type { CaseStudyFigure, ResearchProject } from "@/data/research";
 import { ui } from "@/i18n/ui";
 import { localizeHref, type Locale } from "@/lib/i18n";
@@ -108,19 +107,7 @@ export function ProjectView({
               <>
                 {project.supervisorLabel ?? ui.supervisor[locale]}
                 {locale === "zh" ? "：" : ": "}
-                {project.advisorHref ? (
-                  <a
-                    href={project.advisorHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-medium text-pine hover:text-pine-deep"
-                  >
-                    {project.supervisor}
-                    <ExternalIcon className="size-3.5 shrink-0" />
-                  </a>
-                ) : (
-                  project.supervisor
-                )}
+                {project.supervisor}
               </>
             ) : null}
             {project.supervisor && project.coSupervisor ? " · " : null}

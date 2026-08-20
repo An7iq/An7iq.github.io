@@ -60,7 +60,6 @@ export type ResearchProject = {
   supervisor?: string;
   coSupervisor?: string;
   supervisorLabel?: string;
-  advisorHref?: string;
   links: ResearchLink[];
   featured: boolean;
   group: ResearchGroup;
@@ -579,7 +578,6 @@ export const researchProjects: ResearchProject[] = [
     yearLabel: "2021",
     supervisor: "Prof. David Holland",
     supervisorLabel: "Academic mentor",
-    advisorHref: "https://math.nyu.edu/people/profiles/HOLLAND_David.html",
     links: [],
     featured: false,
     group: "collaborative",

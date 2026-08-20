@@ -351,7 +351,6 @@ export const researchZh: Record<string, ResearchOverlay> = {
     institution: "纽约大学",
     supervisor: "David Holland 教授",
     supervisorLabel: "项目导师",
-    advisorHref: "https://math.nyu.edu/people/profiles/HOLLAND_David.html",
     caseStudy: {
       context:
         "开放大洋中排放废水的长期扩散常在观测约束有限的情况下讨论。简化的环流–扩散模型可以在既定假设下说明空间扩散，而不假装成为完整的海洋环流模拟。",
