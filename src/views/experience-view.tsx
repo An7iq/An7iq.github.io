@@ -5,6 +5,7 @@ import {
   experienceCopy,
   researchExperience,
   teachingExperience,
+  translationExperience,
   type ExperienceItem,
 } from "@/data/experience";
 import { ui } from "@/i18n/ui";
@@ -23,9 +24,11 @@ function ExperienceList({
         const copy = experienceCopy(item, locale);
         const advisorNames = item.advisors?.[locale] ?? [];
         const advisorLabel =
-          advisorNames.length > 1 ? ui.advisors[locale] : ui.advisor[locale];
+          item.advisorLabel?.[locale] ??
+          (advisorNames.length > 1 ? ui.advisors[locale] : ui.advisor[locale]);
         const advisorJoin = locale === "zh" ? "、" : " and ";
         const advisorPunct = locale === "zh" ? "：" : ": ";
+        const orgLine = copy.location ? `${copy.org} · ${copy.location}` : copy.org;
         return (
           <li key={item.id} className="relative pb-10 last:pb-0">
             <span
@@ -36,15 +39,32 @@ function ExperienceList({
               {copy.dateLabel}
             </p>
             <h3 className="mt-2 font-serif text-2xl text-ink">{copy.role}</h3>
-            <p className="mt-1 text-muted">
-              {copy.org} · {copy.location}
-            </p>
+            {copy.workTitle ? (
+              <p className="mt-2 text-lg leading-snug text-ink">{copy.workTitle}</p>
+            ) : null}
+            {copy.series ? <p className="mt-1 text-muted">{copy.series}</p> : null}
+            <p className="mt-1 text-muted">{orgLine}</p>
             {advisorNames.length ? (
               <p className="mt-2 text-sm text-pine-deep">
-                {advisorLabel}{advisorPunct}{advisorNames.join(advisorJoin)}
+                {advisorLabel}
+                {advisorPunct}
+                {advisorNames.join(advisorJoin)}
               </p>
             ) : null}
             <p className="mt-3 leading-relaxed text-ink/80">{copy.summary}</p>
+            {copy.isbn ? <p className="mt-3 text-sm text-muted">{copy.isbn}</p> : null}
+            {item.publicationHref ? (
+              <p className="mt-2">
+                <a
+                  href={item.publicationHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-pine hover:text-pine-deep"
+                >
+                  {ui.publicationDetails[locale]}
+                </a>
+              </p>
+            ) : null}
           </li>
         );
       })}
@@ -89,6 +109,11 @@ export function ExperienceView({ locale }: { locale: Locale }) {
         <ExperienceCard
           title={ui.teachingExperience[locale]}
           items={teachingExperience}
+          locale={locale}
+        />
+        <ExperienceCard
+          title={ui.translationExperience[locale]}
+          items={translationExperience}
           locale={locale}
         />
         <ExperienceCard

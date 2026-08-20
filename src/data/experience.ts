@@ -1,6 +1,11 @@
 import type { Locale, Localized } from "@/lib/i18n";
 
-export type ExperienceKind = "research" | "teaching" | "service" | "internship";
+export type ExperienceKind =
+  | "research"
+  | "teaching"
+  | "translation"
+  | "service"
+  | "internship";
 
 export type ExperienceItem = {
   id: string;
@@ -10,8 +15,13 @@ export type ExperienceItem = {
   dateLabel: Localized;
   role: Localized;
   org: Localized;
-  location: Localized;
+  location?: Localized;
+  workTitle?: Localized;
+  series?: Localized;
   advisors?: Localized<string[]>;
+  advisorLabel?: Localized;
+  isbn?: Localized;
+  publicationHref?: string;
   summary: Localized;
   homeOrder?: number;
   homeRole?: Localized;
@@ -40,8 +50,8 @@ export const experience: ExperienceItem[] = [
     },
     location: { en: "China", zh: "中国" },
     advisors: {
-      en: ["Yuchuan Fan"],
-      zh: ["范豫川"],
+      en: ["Prof. Yuchuan Fan"],
+      zh: ["范豫川教授"],
     },
     summary: {
       en: "Conduct data processing, statistical analysis, model development, and scientific interpretation for projects in smart agriculture, hydrology, ecological resilience, non-rainfall water, and groundwater protection. Contribute to research proposals, manuscript writing, figure preparation, journal submissions and revisions, and student research support.",
@@ -68,8 +78,8 @@ export const experience: ExperienceItem[] = [
     },
     location: { en: "China", zh: "中国" },
     advisors: {
-      en: ["Lei Zhou", "Xiaoying Gan"],
-      zh: ["周磊", "甘小莺"],
+      en: ["Prof. Lei Zhou", "Prof. Xiaoying Gan"],
+      zh: ["周磊教授", "甘小莺教授"],
     },
     summary: {
       en: "Integrated ice-core chemical records, volcanic-event catalogues, and alternative chronologies; developed signal-window features and XGBoost detection workflows; and contributed to sample construction, model comparison, error analysis, and age-offset evaluation.",
@@ -94,12 +104,95 @@ export const experience: ExperienceItem[] = [
       en: "Tsinghua-affiliated Project",
       zh: "清华相关合作项目",
     },
-    location: { en: "China", zh: "中国" },
+    advisors: {
+      en: ["Dr Rui Li"],
+      zh: ["李睿博士"],
+    },
+    advisorLabel: {
+      en: "Research mentor",
+      zh: "合作导师",
+    },
     summary: {
-      en: "Integrated global ocean observations with Earth-system model outputs, harmonised physical and biogeochemical variables, assessed data consistency and spatial coverage, and prepared model-ready datasets for machine-learning analysis.",
-      zh: "整合全球海洋观测记录与地球系统模式输出，统一物理和生物地球化学变量，检查数据一致性与空间覆盖，并构建可用于机器学习分析的数据集。",
+      en: "Integrated global ocean observations and Earth-system model outputs, harmonised physical and biogeochemical variables, assessed data consistency and spatial coverage, and prepared model-ready datasets for statistical and machine-learning analyses.",
+      zh: "整合全球海洋观测数据与地球系统模式输出，对物理和生物地球化学变量进行统一整理，检查数据的一致性与空间覆盖，并构建适用于统计分析和机器学习建模的数据集。",
+    },
+    homeOrg: {
+      en: "Tsinghua-affiliated Project · Dr Rui Li",
+      zh: "清华相关合作项目 · 李睿博士",
     },
     homeOrder: 3,
+  },
+  {
+    id: "how-why-shapes",
+    kind: "translation",
+    start: "2025",
+    end: "2025",
+    dateLabel: {
+      en: "2025",
+      zh: "2025",
+    },
+    role: {
+      en: "Science Book Translator",
+      zh: "科普图书翻译",
+    },
+    workTitle: {
+      en: "HOW & WHY: 有趣的形状和数",
+      zh: "《HOW&WHY美国经典少儿百科知识全书·有趣的形状和数》",
+    },
+    series: {
+      en: "HOW & WHY: The Classic American Children's Encyclopedia Series",
+      zh: "",
+    },
+    org: {
+      en: "Jiangsu Phoenix Science and Technology Press",
+      zh: "江苏凤凰科学技术出版社",
+    },
+    summary: {
+      en: "Contributed to the English-to-Chinese translation of sections on mathematics in technology, everyday life, and codes, based on Math of Technology, Math in Life, and Math of Codes.",
+      zh: "参与该书的英译中工作，翻译内容涉及技术、日常生活和密码中的数学应用。原稿对应 Math of Technology、Math in Life 和 Math of Codes 三个部分。",
+    },
+    isbn: {
+      en: "ISBN: 9787571348311",
+      zh: "ISBN：9787571348311",
+    },
+    publicationHref: "https://product.dangdang.com/29841083.html",
+    sortOrder: 1,
+  },
+  {
+    id: "how-why-happen",
+    kind: "translation",
+    start: "2025",
+    end: "2025",
+    dateLabel: {
+      en: "2025",
+      zh: "2025",
+    },
+    role: {
+      en: "Science Book Translator",
+      zh: "科普图书翻译",
+    },
+    workTitle: {
+      en: "How Does It Happen?",
+      zh: "《HOW&WHY美国经典少儿百科知识全书·那是怎么回事》",
+    },
+    series: {
+      en: "Childcraft: The How and Why Library",
+      zh: "",
+    },
+    org: {
+      en: "Chinese edition published by Jiangsu Phoenix Science and Technology Press",
+      zh: "江苏凤凰科学技术出版社",
+    },
+    summary: {
+      en: "Translated the book from English into Chinese, covering introductory explanations of machines, motion, matter, energy, heat, light, sound, and electricity.",
+      zh: "承担该书的英译中工作。该书以通俗方式介绍机械、运动、物质、能量、冷热、光、声音和电等基础科学问题，英文原作为 Childcraft: The How and Why Library — How Does It Happen?",
+    },
+    isbn: {
+      en: "Chinese edition ISBN: 9787571348328",
+      zh: "ISBN：9787571348328",
+    },
+    publicationHref: "https://product.dangdang.com/29841075.html",
+    sortOrder: 2,
   },
   {
     id: "zafu-teaching",
@@ -308,6 +401,9 @@ export const researchExperience = experience.filter((item) => item.kind === "res
 export const teachingExperience = experience
   .filter((item) => item.kind === "teaching")
   .sort((a, b) => (a.sortOrder ?? 99) - (b.sortOrder ?? 99));
+export const translationExperience = experience
+  .filter((item) => item.kind === "translation")
+  .sort((a, b) => (a.sortOrder ?? 99) - (b.sortOrder ?? 99));
 export const academicService = experience.filter((item) => item.kind === "service");
 export const earlierInternships = experience.filter((item) => item.kind === "internship");
 
@@ -316,7 +412,10 @@ export function experienceCopy(item: ExperienceItem, locale: Locale) {
     dateLabel: item.dateLabel[locale],
     role: item.role[locale],
     org: item.org[locale],
-    location: item.location[locale],
+    location: item.location?.[locale] ?? "",
+    workTitle: item.workTitle?.[locale] ?? "",
+    series: item.series?.[locale] ?? "",
+    isbn: item.isbn?.[locale] ?? "",
     summary: item.summary[locale],
   };
 }

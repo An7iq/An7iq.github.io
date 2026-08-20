@@ -30,7 +30,9 @@ export function HomeSummary({ locale }: { locale: Locale }) {
                   <p className="mt-1 font-medium leading-snug text-ink">
                     {item.homeRole?.[locale] ?? copy.role}
                   </p>
-                  <p className="mt-0.5 text-sm text-muted">{copy.org}</p>
+                  <p className="mt-0.5 text-sm text-muted">
+                    {item.homeOrg?.[locale] ?? copy.org}
+                  </p>
                 </li>
               );
             })}
