@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   GithubIcon,
@@ -20,33 +19,34 @@ const actionDefs = [
 
 export function Hero({ locale }: { locale: Locale }) {
   const copy = locale === "zh" ? siteZh : site;
+  const heading = locale === "zh" ? siteZh.name : site.name;
 
   return (
     <section className="hero">
-      <Image
-        src={site.hero.src}
-        alt={locale === "zh" ? siteZh.portraitAlt : site.hero.alt}
-        fill
-        priority
-        sizes="100vw"
-        className="hero-background"
-      />
-      <div className="hero-overlay" aria-hidden="true" />
+      <picture className="hero-picture">
+        <source media="(max-width: 700px)" srcSet={site.portrait.src} />
+        <img
+          className="hero-image"
+          src={site.hero.src}
+          alt={locale === "zh" ? siteZh.portraitAlt : site.hero.alt}
+        />
+      </picture>
+      <div className="hero-left-treatment" aria-hidden="true" />
       <Container className="hero-content">
-        <div className="max-w-xl md:max-w-[min(34rem,42vw)]">
+        <div className="hero-copy">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
             {ui.kicker[locale]}
           </p>
           <h1 className="mt-4 font-serif text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-[4.4rem]">
-            {site.name}
+            {heading}
           </h1>
           <p className="mt-5 text-xl text-white/90 sm:text-2xl">{copy.role}</p>
           <p className="mt-1 text-lg text-white/65 sm:text-xl">{copy.subtitle}</p>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+          <p className="hero-intro mt-6 max-w-xl text-lg leading-relaxed text-white/85">
             {copy.intro}
           </p>
-          <p className="mt-3 max-w-xl text-base leading-relaxed text-white/60">
-            {copy.positioning}
+          <p className="hero-intro-2 mt-3 max-w-xl text-base leading-relaxed text-white/80">
+            {copy.intro2}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             {actionDefs.map((action) => {

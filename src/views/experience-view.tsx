@@ -21,10 +21,11 @@ function ExperienceList({
     <ol className="relative border-l border-sand pl-6 sm:pl-8">
       {items.map((item) => {
         const copy = experienceCopy(item, locale);
+        const advisorNames = item.advisors?.[locale] ?? [];
         const advisorLabel =
-          item.advisors && item.advisors.length > 1
-            ? ui.advisors[locale]
-            : ui.advisor[locale];
+          advisorNames.length > 1 ? ui.advisors[locale] : ui.advisor[locale];
+        const advisorJoin = locale === "zh" ? "、" : " and ";
+        const advisorPunct = locale === "zh" ? "：" : ": ";
         return (
           <li key={item.id} className="relative pb-10 last:pb-0">
             <span
@@ -38,15 +39,9 @@ function ExperienceList({
             <p className="mt-1 text-muted">
               {copy.org} · {copy.location}
             </p>
-            {item.advisors?.length ? (
+            {advisorNames.length ? (
               <p className="mt-2 text-sm text-pine-deep">
-                {advisorLabel}:{" "}
-                {item.advisors.join(locale === "zh" ? "、" : " and ")}
-              </p>
-            ) : null}
-            {item.collaborative ? (
-              <p className="mt-2 text-sm font-medium text-gold">
-                {ui.collaborativeNote[locale]}
+                {advisorLabel}{advisorPunct}{advisorNames.join(advisorJoin)}
               </p>
             ) : null}
             <p className="mt-3 leading-relaxed text-ink/80">{copy.summary}</p>

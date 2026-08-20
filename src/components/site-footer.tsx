@@ -18,12 +18,13 @@ const social = [
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const positioning = locale === "zh" ? siteZh.positioning : site.positioning;
+  const name = locale === "zh" ? siteZh.name : site.name;
 
   return (
     <footer className="bg-hero text-white">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 sm:px-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="font-serif text-2xl">{site.name}</p>
+          <p className="font-serif text-2xl">{name}</p>
           <p className="mt-2 max-w-md text-sm leading-relaxed text-white/65">
             {positioning}
           </p>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CloseIcon, MenuIcon } from "@/components/icons";
-import { site } from "@/data/site";
+import { site, siteZh } from "@/data/site";
 import { navKeys, ui } from "@/i18n/ui";
 import { cn } from "@/lib/cn";
 import {
@@ -56,7 +56,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           href={localizeHref("/", locale)}
           className="font-serif text-lg tracking-tight sm:text-xl"
         >
-          {site.name}
+          {locale === "zh" ? siteZh.name : site.name}
         </Link>
         <nav
           aria-label={ui.primaryNav[locale]}
