@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Publications & Research Outputs",
   description:
-    "Published papers, manuscripts under review, and work in preparation by Anqi Wang.",
+    "Peer-reviewed papers, manuscripts under review, work in preparation, and conference presentations.",
 };
 
 function PublicationGroup({
@@ -23,13 +23,13 @@ function PublicationGroup({
   items: typeof published;
 }) {
   return (
-    <section className="mt-12">
+    <section className="mt-10 overflow-hidden rounded-2xl border border-sand bg-white p-6 shadow-[0_10px_28px_rgba(27,36,32,0.07)] sm:p-8">
       <h2 className="font-serif text-2xl text-ink">{title}</h2>
       <ul className="mt-6">
         {items.map((item) => (
           <li
             key={item.title}
-            className="border-b border-sand/80 py-6 first:pt-0 last:border-b-0"
+            className="border-b border-sand/80 py-6 first:pt-0 last:border-b-0 last:pb-0"
           >
             <PublicationCitation item={item} />
           </li>
@@ -49,11 +49,11 @@ export default function PublicationsPage() {
           title="Publications & Research Outputs"
           description="Peer-reviewed papers, manuscripts under review, and work in preparation. Unfinished work is listed separately and is not presented as published."
         />
-        <PublicationGroup title="Published" items={published} />
-        <PublicationGroup title="Under Review" items={underReview} />
-        <PublicationGroup title="In Preparation" items={inPreparation} />
-        <section className="mt-12">
-          <h2 className="font-serif text-2xl text-ink">Conference</h2>
+        <PublicationGroup title="Peer-Reviewed Publications" items={published} />
+        <PublicationGroup title="Manuscripts Under Review" items={underReview} />
+        <PublicationGroup title="Manuscripts in Preparation" items={inPreparation} />
+        <section className="mt-10 overflow-hidden rounded-2xl border border-sand bg-white p-6 shadow-[0_10px_28px_rgba(27,36,32,0.07)] sm:p-8">
+          <h2 className="font-serif text-2xl text-ink">Conference Presentations</h2>
           <ul className="mt-6">
             {conferences.map((item) => (
               <li

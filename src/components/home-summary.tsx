@@ -4,14 +4,38 @@ import { education } from "@/data/education";
 import { experience } from "@/data/experience";
 import { homeMethods, homeTools } from "@/data/skills";
 
+function Column({
+  kicker,
+  children,
+  href,
+  linkLabel,
+}: {
+  kicker: string;
+  children: React.ReactNode;
+  href: string;
+  linkLabel: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-sand bg-white p-6 shadow-[0_8px_22px_rgba(27,36,32,0.07)]">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pine">
+        {kicker}
+      </p>
+      {children}
+      <Link
+        href={href}
+        className="mt-5 inline-block text-sm font-medium text-pine hover:text-pine-deep"
+      >
+        {linkLabel}
+      </Link>
+    </div>
+  );
+}
+
 export function HomeSummary() {
   return (
-    <section className="border-y border-sand/80 bg-paper-2/50 py-14 sm:py-16">
-      <Container className="grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pine">
-            Experience
-          </p>
+    <section className="border-y border-sand py-16 sm:py-20">
+      <Container className="grid gap-6 md:grid-cols-3 md:gap-6 lg:gap-8">
+        <Column kicker="Experience" href="/experience/" linkLabel="Full timeline">
           <ul className="mt-5 space-y-4">
             {experience.slice(0, 3).map((item) => (
               <li key={`${item.role}-${item.org}`}>
@@ -23,17 +47,8 @@ export function HomeSummary() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/experience/"
-            className="mt-5 inline-block text-sm font-medium text-pine hover:text-pine-deep"
-          >
-            Full timeline
-          </Link>
-        </div>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pine">
-            Methods
-          </p>
+        </Column>
+        <Column kicker="Methods" href="/methods/" linkLabel="Working methods">
           <ul className="mt-5 space-y-2">
             {homeMethods.map((method) => (
               <li key={method} className="text-ink">
@@ -42,17 +57,8 @@ export function HomeSummary() {
             ))}
           </ul>
           <p className="mt-5 text-sm leading-relaxed text-muted">{homeTools}</p>
-          <Link
-            href="/methods/"
-            className="mt-5 inline-block text-sm font-medium text-pine hover:text-pine-deep"
-          >
-            Working methods
-          </Link>
-        </div>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pine">
-            Education
-          </p>
+        </Column>
+        <Column kicker="Education" href="/education/" linkLabel="Degrees">
           <ul className="mt-5 space-y-4">
             {education.map((item) => (
               <li key={item.degree}>
@@ -64,13 +70,7 @@ export function HomeSummary() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/education/"
-            className="mt-5 inline-block text-sm font-medium text-pine hover:text-pine-deep"
-          >
-            Degrees
-          </Link>
-        </div>
+        </Column>
       </Container>
     </section>
   );

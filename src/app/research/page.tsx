@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProjectCard, TextProject } from "@/components/project-card";
+import { EarlierProjectCard, ProjectCard } from "@/components/project-card";
 import { Container, SectionHeading } from "@/components/section";
 import { currentProjects, earlierProjects } from "@/data/research";
 
@@ -19,33 +19,24 @@ export default function ResearchPage() {
           title="Projects"
           description="Current and recent work first, followed by earlier dissertation and internship projects."
         />
-        <h2 className="mt-12 font-serif text-3xl tracking-tight text-ink">
+        <h2 className="mt-14 font-serif text-3xl tracking-tight text-ink">
           Current &amp; recent research
         </h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
-          {currentProjects
-            .filter((project) => project.image)
-            .map((project, index) => (
-              <ProjectCard key={project.slug} project={project} index={index} compact />
-            ))}
+        <div className="mt-8 grid items-stretch gap-6 md:grid-cols-2">
+          {currentProjects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} compact />
+          ))}
         </div>
-        <div className="mt-4">
-          {currentProjects
-            .filter((project) => !project.image)
-            .map((project) => (
-              <TextProject key={project.slug} project={project} />
-            ))}
-        </div>
-        <h2 className="mt-16 font-serif text-3xl tracking-tight text-ink">
+        <h2 className="mt-20 font-serif text-3xl tracking-tight text-ink">
           Earlier research
         </h2>
         <p className="mt-3 max-w-2xl text-muted">
           Dissertation and internship work, described conservatively. These
           entries are text-only where no original project figure is available.
         </p>
-        <div className="mt-4 max-w-3xl">
+        <div className="mt-8 grid gap-5">
           {earlierProjects.map((project) => (
-            <TextProject key={project.slug} project={project} />
+            <EarlierProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </Container>

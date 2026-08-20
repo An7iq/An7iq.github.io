@@ -21,7 +21,7 @@ export default function MethodsPage() {
           {homeMethods.map((method) => (
             <li
               key={method}
-              className="rounded-2xl border border-sand bg-card px-5 py-4 font-medium text-ink"
+              className="rounded-2xl border border-sand bg-white px-5 py-4 font-medium text-ink shadow-[0_8px_22px_rgba(27,36,32,0.07)]"
             >
               {method}
             </li>
@@ -32,7 +32,7 @@ export default function MethodsPage() {
           {skillGroups.map((group) => (
             <article
               key={group.title}
-              className="rounded-2xl border border-sand bg-card p-6 sm:p-7"
+              className="rounded-2xl border border-sand bg-white p-6 shadow-[0_8px_22px_rgba(27,36,32,0.07)] sm:p-7"
             >
               <h2 className="font-serif text-2xl text-ink">{group.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted">{group.note}</p>

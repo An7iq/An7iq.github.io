@@ -12,7 +12,7 @@ export default function AboutPage() {
     <main id="main" className="pb-20 pt-12 sm:pb-28 sm:pt-16">
       <Container>
         <SectionHeading as="h1" kicker="About" title="A quantitative view of environmental systems" />
-        <div className="mt-10 max-w-3xl space-y-5 text-lg leading-relaxed text-ink/85">
+        <div className="mt-10 max-w-3xl space-y-5 rounded-2xl border border-sand bg-white p-6 text-lg leading-relaxed text-ink/85 shadow-[0_10px_28px_rgba(27,36,32,0.07)] sm:p-8">
           <p>
             I am a quantitative environmental researcher currently working as a
             Research Assistant at Zhejiang A&amp;F University. I hold an MSc in

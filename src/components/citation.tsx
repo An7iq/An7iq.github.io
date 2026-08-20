@@ -90,7 +90,7 @@ export function PublicationCitation({ item }: { item: Publication }) {
       <StatusBadge status={item.status} />
       <p className="mt-2 text-[0.95rem] leading-relaxed break-words text-ink/90 sm:text-base">
         <AuthorList authors={item.authors} />
-        {item.year ? ` (${item.year}). ` : ". "}
+        {item.year ? ` (${item.year}). ` : " "}
         {item.title}.
         <Venue item={item} />
       </p>

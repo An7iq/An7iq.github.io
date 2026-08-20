@@ -16,7 +16,7 @@ export default function EducationPage() {
           {education.map((item) => (
             <article
               key={item.degree}
-              className="rounded-2xl border border-sand bg-card p-6 sm:p-8"
+              className="rounded-2xl border border-sand bg-white p-6 shadow-[0_8px_22px_rgba(27,36,32,0.07)] sm:p-8"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pine">
                 {item.years}

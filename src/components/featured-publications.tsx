@@ -5,7 +5,7 @@ import { featuredPublications } from "@/data/publications";
 
 export function FeaturedPublications() {
   return (
-    <section className="pb-16 sm:pb-20">
+    <section className="pb-20 sm:pb-24">
       <Container>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -23,9 +23,9 @@ export function FeaturedPublications() {
             View all publications
           </Link>
         </div>
-        <ol className="mt-8 divide-y divide-sand/80 border-y border-sand/80">
+        <ol className="mt-8 overflow-hidden rounded-2xl border border-sand bg-white shadow-[0_10px_28px_rgba(27,36,32,0.07)]">
           {featuredPublications.map((item) => (
-            <li key={item.title} className="py-5">
+            <li key={item.title} className="border-b border-sand px-5 py-5 last:border-b-0 sm:px-6">
               <div className="flex flex-wrap items-center gap-2">
                 <StatusBadge status={item.status} />
                 {item.year ? (

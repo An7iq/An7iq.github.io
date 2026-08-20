@@ -5,7 +5,7 @@ import { featuredProjects } from "@/data/research";
 
 export function FeaturedResearch() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-20 sm:py-24">
       <Container>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -23,7 +23,7 @@ export function FeaturedResearch() {
             All projects
           </Link>
         </div>
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2">
           {featuredProjects.map((project, index) => (
             <ProjectCard
               key={project.slug}
