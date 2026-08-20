@@ -70,7 +70,7 @@ export const researchProjects: ResearchProject[] = [
     cardSummary:
       "This multi-site study quantifies overlooked nighttime atmospheric water inputs across contrasting crops and surface conditions. Lysimeter, meteorological, and crop-stage observations are combined with quality control, event detection, XGBoost, and SHAP to identify environmental controls and assess water-budget bias.",
     featuredSummary:
-      "This multi-site study quantifies overlooked nighttime atmospheric water inputs across contrasting crops and surface conditions. Lysimeter, meteorological, and crop-stage observations are combined with event detection, XGBoost, and SHAP to identify environmental controls and water-budget bias.",
+      "Multi-site lysimeter and meteorological observations reveal when overlooked nighttime water inputs occur across contrasting croplands. XGBoost and SHAP identify their environmental controls and quantify consequences for agroecosystem water accounting.",
     shortSummary:
       "This multi-site study quantifies overlooked nighttime atmospheric water inputs across contrasting crops and surface conditions.",
     tags: [
@@ -138,7 +138,7 @@ export const researchProjects: ResearchProject[] = [
     cardSummary:
       "This study examines how flood-frequency distributions changed along the middle–lower Yangtze River from 1960 to 2022. Multi-step nonstationarity diagnostics, GAMLSS, and RF–SHAP are used to compare hydroclimatic and reservoir-related associations across four gauging stations.",
     featuredSummary:
-      "This study examines how flood-frequency distributions changed along the middle–lower Yangtze River from 1960 to 2022. Nonstationarity diagnostics, GAMLSS, and RF–SHAP compare hydroclimatic and reservoir-related associations across four gauging stations.",
+      "Sixty-three years of records from four Yangtze River stations are analysed using nonstationarity diagnostics, GAMLSS, and RF–SHAP. The study compares changing flood distributions with hydroclimatic and reservoir-related associations.",
     shortSummary:
       "This study examines how flood-frequency distributions changed along the middle–lower Yangtze River from 1960 to 2022.",
     tags: ["Hydrology", "Flood Extremes", "GAMLSS", "Hydroclimate", "Time Series"],
@@ -192,7 +192,7 @@ export const researchProjects: ResearchProject[] = [
     cardSummary:
       "This project develops quantitative methods for identifying volcanic signals in Antarctic ice-core chemical records. Morphology-aware window features, XGBoost benchmarking, event-catalogue matching, and age-offset analysis are integrated to evaluate both event detection and chronological alignment.",
     featuredSummary:
-      "This project develops quantitative methods for identifying volcanic signals in Antarctic ice-core chemical records. Morphology-aware window features, XGBoost benchmarking, and age-offset analysis evaluate both event detection and chronological alignment.",
+      "Morphology-aware features and XGBoost are used to detect volcanic signals in Antarctic ice-core chemistry. Event-catalogue matching and age-offset analysis connect signal detection with palaeoclimate chronology.",
     shortSummary:
       "This project develops quantitative methods for identifying volcanic signals in Antarctic ice-core chemical records.",
     tags: [
@@ -250,7 +250,7 @@ export const researchProjects: ResearchProject[] = [
     cardSummary:
       "This 24-year study traces ecological-resilience change, catch-up dynamics, and carbon-related constraints across 27 cities in the Yangtze River Delta. Multi-source spatial data are analysed using Random Forest, SHAP, and structural equation modelling to distinguish temporal convergence from persistent spatial differences.",
     featuredSummary:
-      "This 24-year study traces ecological-resilience change, catch-up dynamics, and carbon-related constraints across 27 cities in the Yangtze River Delta. Random Forest, SHAP, and structural equation modelling distinguish temporal convergence from persistent spatial differences.",
+      "Multi-source data trace ecological-resilience change and carbon constraints across 27 cities from 2000 to 2023. Random Forest, SHAP, and structural equation modelling examine spatial differences and catch-up dynamics.",
     shortSummary:
       "This 24-year study traces ecological-resilience change, catch-up dynamics, and carbon-related constraints across 27 cities in the Yangtze River Delta.",
     tags: [

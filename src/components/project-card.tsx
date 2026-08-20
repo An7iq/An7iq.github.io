@@ -29,17 +29,74 @@ export function ProjectCard({
   project,
   index,
   compact = false,
+  home = false,
 }: {
   project: ResearchProject;
   index: number;
   compact?: boolean;
+  home?: boolean;
 }) {
   const href = `/research/${project.slug}/`;
-  const tags = compact ? project.cardTags.slice(0, 4) : project.tags;
-  const summary =
-    compact && project.featuredSummary
-      ? project.featuredSummary
-      : project.cardSummary;
+  const tags = compact || home ? project.cardTags.slice(0, 4) : project.tags;
+  const summary = home
+    ? (project.featuredSummary ?? project.cardSummary)
+    : project.cardSummary;
+
+  if (home) {
+    return (
+      <article className={cardSurface}>
+        {project.image ? (
+          <Link href={href} className="block" aria-hidden="true" tabIndex={-1}>
+            <div className="relative h-[220px] w-full overflow-hidden rounded-t-2xl bg-white p-2 md:h-[210px] xl:h-[210px]">
+              <div className="relative h-full w-full">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  fill
+                  priority={index < 2}
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                />
+              </div>
+            </div>
+          </Link>
+        ) : null}
+        <div className="flex flex-1 flex-col px-4 pb-4 pt-3 sm:px-[1.05rem]">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-pine">
+            {projectIndex(index)}
+          </p>
+          <h3 className="mt-1.5 min-h-[2.7rem] font-serif text-[1.05rem] leading-snug tracking-tight text-ink xl:min-h-[3.15rem]">
+            <Link href={href} className="hover:text-pine">
+              {project.title}
+            </Link>
+          </h3>
+          <p className="mt-2 text-[0.86rem] leading-relaxed text-ink/80">
+            {summary}
+          </p>
+          <ul className="mt-3 flex flex-wrap gap-1.5">
+            {tags.map((tag) => (
+              <li
+                key={tag}
+                className="rounded-full border border-sand bg-paper px-2 py-0.5 text-[0.68rem] tracking-wide text-pine-deep"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-auto pt-3">
+            <p className="text-[0.72rem] leading-snug text-muted">{project.output}</p>
+            <Link
+              href={href}
+              className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-pine hover:text-pine-deep"
+            >
+              View project
+              <ArrowRightIcon className="size-4" />
+            </Link>
+          </div>
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article className={cardSurface}>

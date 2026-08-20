@@ -5,9 +5,9 @@ import { featuredProjects } from "@/data/research";
 
 export function FeaturedResearch() {
   return (
-    <section className="py-20 sm:py-24">
+    <section className="py-12 sm:py-14">
       <Container>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pine">
               Research
@@ -18,18 +18,19 @@ export function FeaturedResearch() {
           </div>
           <Link
             href="/research/"
-            className="text-sm font-medium text-pine hover:text-pine-deep"
+            className="inline-flex items-center gap-1 text-sm font-medium text-pine hover:text-pine-deep"
           >
             All projects
+            <span aria-hidden="true">→</span>
           </Link>
         </div>
-        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-7 grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-4">
           {featuredProjects.map((project, index) => (
             <ProjectCard
               key={project.slug}
               project={project}
               index={index}
-              compact
+              home
             />
           ))}
         </div>

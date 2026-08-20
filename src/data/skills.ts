@@ -16,6 +16,30 @@ export const homeMethods = [
 export const homeTools =
   "Python · R · XGBoost · Random Forest · SHAP · GAMLSS · xarray/NetCDF · GIS/GEE";
 
+export const homeSkillPills = [
+  "Python",
+  "R",
+  "SQL",
+  "Machine Learning",
+  "Statistical Modelling",
+  "XGBoost",
+  "Random Forest",
+  "SHAP",
+  "GAMLSS",
+  "Time-Series Analysis",
+  "Earth-System Data",
+  "Hydrology",
+  "Remote Sensing",
+  "GIS",
+  "Google Earth Engine",
+  "NetCDF",
+  "xarray",
+  "pandas",
+  "Scientific Visualisation",
+  "LaTeX",
+  "Git",
+];
+
 export const skillGroups: SkillGroup[] = [
   {
     title: "Programming & Scientific Computing",
