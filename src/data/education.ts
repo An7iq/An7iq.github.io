@@ -12,7 +12,7 @@ export const education: EducationItem[] = [
     institution: "Imperial College London",
     years: "2022–2023",
     result: "Merit",
-    note: "Dissertation: Modelling Seagrass Growth Patterns and Identifying Influencing Factors Using Cellular Automata for Restoration Purposes.",
+    note: "Dissertation: Modelling Seagrass Growth Growing Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes.",
   },
   {
     degree: "BSc (Hons) Environmental Science",

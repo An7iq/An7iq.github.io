@@ -23,7 +23,7 @@ export function FeaturedResearch() {
             All projects
           </Link>
         </div>
-        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2">
+        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
           {featuredProjects.map((project, index) => (
             <ProjectCard
               key={project.slug}

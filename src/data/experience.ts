@@ -29,11 +29,11 @@ export const experience: ExperienceItem[] = [
   {
     start: "Nov 2023",
     end: "Mar 2024",
-    role: "Research Collaboration — Marine Biogeochemistry",
+    role: "Research Collaboration — Ocean Carbonate-Ion Data Integration",
     org: "Tsinghua-affiliated Project",
     location: "China",
     summary:
-      "Harmonised global observational and Earth-system model datasets for ocean carbon-cycle analysis.",
+      "Harmonised global observational and Earth-system model datasets for ocean carbonate-ion analysis in a collaborative Tsinghua-affiliated project.",
   },
   {
     start: "Mar 2022",

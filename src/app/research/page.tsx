@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { EarlierProjectCard, ProjectCard } from "@/components/project-card";
+import {
+  DissertationCard,
+  EarlierProjectCard,
+  ProjectCard,
+} from "@/components/project-card";
 import { Container, SectionHeading } from "@/components/section";
-import { currentProjects, earlierProjects } from "@/data/research";
+import {
+  collaborativeProjects,
+  currentProjects,
+  dissertationProjects,
+} from "@/data/research";
 
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Current, recent, and earlier research by Anqi Wang across environmental and Earth-system science.",
+    "Current, recent, dissertation, and collaborative research by Anqi Wang across environmental and Earth-system science.",
 };
 
 export default function ResearchPage() {
@@ -17,7 +25,7 @@ export default function ResearchPage() {
           as="h1"
           kicker="Research"
           title="Projects"
-          description="Current and recent work first, followed by earlier dissertation and internship projects."
+          description="Current manuscripts first, then dissertations, then earlier collaborative work. Short collaborations are not presented as equivalent to current first-author studies."
         />
         <h2 className="mt-14 font-serif text-3xl tracking-tight text-ink">
           Current &amp; recent research
@@ -28,14 +36,26 @@ export default function ResearchPage() {
           ))}
         </div>
         <h2 className="mt-20 font-serif text-3xl tracking-tight text-ink">
-          Earlier research
+          Dissertations
         </h2>
         <p className="mt-3 max-w-2xl text-muted">
-          Dissertation and internship work, described conservatively. These
-          entries are text-only where no original project figure is available.
+          Independent degree projects with fuller computational or chemical
+          modelling detail on their project pages.
+        </p>
+        <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-2">
+          {dissertationProjects.map((project) => (
+            <DissertationCard key={project.slug} project={project} />
+          ))}
+        </div>
+        <h2 className="mt-20 font-serif text-3xl tracking-tight text-ink">
+          Earlier &amp; collaborative research
+        </h2>
+        <p className="mt-3 max-w-2xl text-muted">
+          Affiliated collaborations and internships. These entries document
+          research experience rather than independent first-author manuscripts.
         </p>
         <div className="mt-8 grid gap-5">
-          {earlierProjects.map((project) => (
+          {collaborativeProjects.map((project) => (
             <EarlierProjectCard key={project.slug} project={project} />
           ))}
         </div>
