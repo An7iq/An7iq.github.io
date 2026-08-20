@@ -4,20 +4,47 @@ import { site } from "@/data/site";
 
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const projectPages = researchProjects.map((project) => ({
-    url: `${site.url}/research/${project.slug}/`,
-  }));
+const pages = [
+  "/",
+  "/about/",
+  "/research/",
+  "/publications/",
+  "/experience/",
+  "/education/",
+  "/methods/",
+  "/cv/",
+];
 
-  return [
-    { url: site.url },
-    { url: `${site.url}/about/` },
-    { url: `${site.url}/research/` },
-    { url: `${site.url}/publications/` },
-    { url: `${site.url}/experience/` },
-    { url: `${site.url}/education/` },
-    { url: `${site.url}/methods/` },
-    { url: `${site.url}/cv/` },
-    ...projectPages,
-  ];
+export default function sitemap(): MetadataRoute.Sitemap {
+  const projectPages = researchProjects.flatMap((project) => {
+    const en = `${site.url}/research/${project.slug}/`;
+    const zh = `${site.url}/zh/research/${project.slug}/`;
+    return [
+      {
+        url: en,
+        alternates: { languages: { en, "zh-CN": zh, "x-default": en } },
+      },
+      {
+        url: zh,
+        alternates: { languages: { en, "zh-CN": zh, "x-default": en } },
+      },
+    ];
+  });
+
+  const core = pages.flatMap((path) => {
+    const en = path === "/" ? `${site.url}/` : `${site.url}${path}`;
+    const zh = path === "/" ? `${site.url}/zh/` : `${site.url}/zh${path}`;
+    return [
+      {
+        url: en,
+        alternates: { languages: { en, "zh-CN": zh, "x-default": en } },
+      },
+      {
+        url: zh,
+        alternates: { languages: { en, "zh-CN": zh, "x-default": en } },
+      },
+    ];
+  });
+
+  return [...core, ...projectPages];
 }

@@ -12,6 +12,8 @@ export const site = {
     "Using data, models, and computation to understand environmental systems across scales.",
   email: "an7i.www@gmail.com",
   cvPath: "/Anqi_Wang_CV.pdf",
+  chineseCvPath: "/Anqi_Wang_CV_CN.pdf",
+  chineseCvAvailable: false,
   portrait: {
     src: "/images/anqi-wang-portrait.jpg",
     alt: "Anqi Wang standing outside an Imperial College London building, holding bound academic documents.",
@@ -34,12 +36,33 @@ export const site = {
   },
 } as const;
 
-export const navItems = [
-  { href: "/about/", label: "About" },
-  { href: "/research/", label: "Research" },
-  { href: "/publications/", label: "Publications" },
-  { href: "/experience/", label: "Experience" },
-  { href: "/education/", label: "Education" },
-  { href: "/methods/", label: "Methods" },
-  { href: "/cv/", label: "CV" },
+export const siteZh = {
+  title: "王安琪 | 环境与地球系统数据科学",
+  description:
+    "定量环境研究者，研究领域涵盖水文学、生态学、海洋与地球系统科学以及环境机器学习。",
+  role: "环境数据科学家",
+  subtitle: "面向环境与地球科学的人工智能",
+  intro: "我的工作位于环境科学、地球系统数据与计算方法的交叉处。",
+  positioning: "用数据、模型与计算理解跨尺度的环境系统。",
+  domains: [
+    "环境与地球系统科学",
+    "水文与水文气候",
+    "生态模拟",
+    "海洋与水生系统",
+    "农业生态系统",
+    "古气候",
+    "环境机器学习",
+  ],
+  portraitAlt:
+    "王安琪站在帝国理工学院建筑外，手持装订的学术材料。",
+} as const;
+
+export const navHrefs = [
+  "/about/",
+  "/research/",
+  "/publications/",
+  "/experience/",
+  "/education/",
+  "/methods/",
+  "/cv/",
 ] as const;

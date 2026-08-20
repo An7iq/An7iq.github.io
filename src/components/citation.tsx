@@ -1,6 +1,7 @@
 import type { Publication, PublicationStatus } from "@/data/publications";
-import { statusLabels } from "@/data/publications";
+import { ui } from "@/i18n/ui";
 import { cn } from "@/lib/cn";
+import type { Locale } from "@/lib/i18n";
 
 export function AuthorList({ authors }: { authors: string }) {
   const parts = authors.split(/(Wang, A\.)/g);
@@ -25,11 +26,19 @@ const badgeClass: Record<PublicationStatus, string> = {
   "in-preparation": "border border-sand bg-card text-muted",
 };
 
+const statusKey = {
+  published: "statusPublished",
+  "under-review": "statusUnderReview",
+  "in-preparation": "statusInPreparation",
+} as const;
+
 export function StatusBadge({
   status,
+  locale,
   className,
 }: {
   status: PublicationStatus;
+  locale: Locale;
   className?: string;
 }) {
   return (
@@ -40,12 +49,12 @@ export function StatusBadge({
         className,
       )}
     >
-      {statusLabels[status]}
+      {ui[statusKey[status]][locale]}
     </span>
   );
 }
 
-function Venue({ item }: { item: Publication }) {
+function Venue({ item, locale }: { item: Publication; locale: Locale }) {
   if (item.status === "published" && item.journal) {
     return (
       <>
@@ -72,27 +81,33 @@ function Venue({ item }: { item: Publication }) {
     return (
       <>
         {" "}
-        Under review at <em>{item.journal}</em>.
+        {ui.underReviewAt[locale]} <em>{item.journal}</em>.
       </>
     );
   }
 
   if (item.status === "in-preparation") {
-    return <> In preparation.</>;
+    return <> {ui.inPreparationPhrase[locale]}</>;
   }
 
   return null;
 }
 
-export function PublicationCitation({ item }: { item: Publication }) {
+export function PublicationCitation({
+  item,
+  locale,
+}: {
+  item: Publication;
+  locale: Locale;
+}) {
   return (
     <div className="min-w-0">
-      <StatusBadge status={item.status} />
+      <StatusBadge status={item.status} locale={locale} />
       <p className="mt-2 text-[0.95rem] leading-relaxed break-words text-ink/90 sm:text-base">
         <AuthorList authors={item.authors} />
         {item.year ? ` (${item.year}). ` : " "}
         {item.title}.
-        <Venue item={item} />
+        <Venue item={item} locale={locale} />
       </p>
     </div>
   );

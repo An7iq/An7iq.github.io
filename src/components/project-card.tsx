@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/icons";
 import type { ResearchProject } from "@/data/research";
+import { ui } from "@/i18n/ui";
+import { localizeHref, type Locale } from "@/lib/i18n";
 
 function projectIndex(index: number) {
   return String(index + 1).padStart(2, "0");
@@ -28,15 +30,17 @@ function TagList({ tags }: { tags: string[] }) {
 export function ProjectCard({
   project,
   index,
+  locale,
   compact = false,
   home = false,
 }: {
   project: ResearchProject;
   index: number;
+  locale: Locale;
   compact?: boolean;
   home?: boolean;
 }) {
-  const href = `/research/${project.slug}/`;
+  const href = localizeHref(`/research/${project.slug}/`, locale);
   const tags = compact || home ? project.cardTags.slice(0, 4) : project.tags;
   const summary = home
     ? (project.featuredSummary ?? project.cardSummary)
@@ -89,7 +93,7 @@ export function ProjectCard({
               href={href}
               className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-pine hover:text-pine-deep"
             >
-              View project
+              {ui.viewProject[locale]}
               <ArrowRightIcon className="size-4" />
             </Link>
           </div>
@@ -136,7 +140,7 @@ export function ProjectCard({
           href={href}
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-pine hover:text-pine-deep"
         >
-          View project
+          {ui.viewProject[locale]}
           <ArrowRightIcon className="size-4" />
         </Link>
       </div>
@@ -144,8 +148,14 @@ export function ProjectCard({
   );
 }
 
-export function DissertationCard({ project }: { project: ResearchProject }) {
-  const href = `/research/${project.slug}/`;
+export function DissertationCard({
+  project,
+  locale,
+}: {
+  project: ResearchProject;
+  locale: Locale;
+}) {
+  const href = localizeHref(`/research/${project.slug}/`, locale);
   const meta = [
     project.degreeLabel,
     project.institution,
@@ -155,7 +165,7 @@ export function DissertationCard({ project }: { project: ResearchProject }) {
   return (
     <article className={`${cardSurface} p-6 sm:p-8`}>
       <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-pine">
-        Dissertation
+        {ui.dissertationLabel[locale]}
       </p>
       <h3 className="mt-2 font-serif text-2xl leading-snug tracking-tight text-ink">
         <Link href={href} className="hover:text-pine">
@@ -177,7 +187,7 @@ export function DissertationCard({ project }: { project: ResearchProject }) {
           href={href}
           className="inline-flex items-center gap-1.5 text-sm font-medium text-pine hover:text-pine-deep"
         >
-          View project
+          {ui.viewProject[locale]}
           <ArrowRightIcon className="size-4" />
         </Link>
         {project.links.map((link) => (
@@ -188,7 +198,9 @@ export function DissertationCard({ project }: { project: ResearchProject }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-pine hover:text-pine-deep"
           >
-            {link.label}
+            {link.label === "View academic GitHub"
+              ? ui.viewAcademicGithub[locale]
+              : link.label}
             <ArrowRightIcon className="size-4" />
           </a>
         ))}
@@ -199,13 +211,17 @@ export function DissertationCard({ project }: { project: ResearchProject }) {
 
 export function EarlierProjectCard({
   project,
+  locale,
 }: {
   project: ResearchProject;
+  locale: Locale;
 }) {
+  const href = localizeHref(`/research/${project.slug}/`, locale);
+
   return (
     <article className="rounded-2xl border border-sand bg-white p-5 shadow-[0_8px_22px_rgba(27,36,32,0.07)] sm:p-6">
       <h3 className="font-serif text-xl text-ink">
-        <Link href={`/research/${project.slug}/`} className="hover:text-pine">
+        <Link href={href} className="hover:text-pine">
           {project.title}
         </Link>
       </h3>
@@ -221,10 +237,10 @@ export function EarlierProjectCard({
       </p>
       <TagList tags={project.cardTags} />
       <Link
-        href={`/research/${project.slug}/`}
+        href={href}
         className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-pine hover:text-pine-deep"
       >
-        View project
+        {ui.viewProject[locale]}
         <ArrowRightIcon className="size-4" />
       </Link>
     </article>
