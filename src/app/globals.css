@@ -60,39 +60,40 @@ html[lang="zh-CN"] {
   background: #0f322c;
 }
 
-.hero-picture,
-.hero-image {
+.hero-media {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
 }
 
-.hero-image {
+.hero-media-fill {
+  position: absolute;
+  inset: -40px;
+  background-image: url("/images/anqi-wang-imperial-wide-hero.jpg");
+  background-size: cover;
+  background-position: 28% 40%;
+  filter: blur(16px);
+  transform: scale(1.12);
+}
+
+.hero-picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 62% 42%;
+  object-position: 50% 36%;
 }
 
 .hero-left-treatment {
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-
-.hero-left-treatment::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 48%;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  mask-image: linear-gradient(to right, black 0%, black 55%, transparent 100%);
-  -webkit-mask-image: linear-gradient(
-    to right,
-    black 0%,
-    black 55%,
-    transparent 100%
-  );
 }
 
 .hero-left-treatment::after {
@@ -102,10 +103,11 @@ html[lang="zh-CN"] {
   background: linear-gradient(
     90deg,
     rgba(3, 24, 22, 0.92) 0%,
-    rgba(3, 24, 22, 0.76) 22%,
+    rgba(3, 24, 22, 0.78) 22%,
     rgba(3, 24, 22, 0.4) 38%,
-    rgba(3, 24, 22, 0.1) 50%,
-    rgba(3, 24, 22, 0) 60%
+    rgba(3, 24, 22, 0.12) 48%,
+    rgba(3, 24, 22, 0.02) 58%,
+    transparent 68%
   );
 }
 
@@ -120,85 +122,132 @@ html[lang="zh-CN"] {
 }
 
 .hero-copy {
-  max-width: min(30rem, 36vw);
+  max-width: min(28rem, 42%);
 }
 
-@media (max-width: 1100px) {
-  .hero-image {
-    object-position: 70% 40%;
+@media (min-width: 701px) {
+  .hero-picture {
+    left: auto;
+    right: 0;
+    width: 58%;
+    height: 100%;
+    mask-image: linear-gradient(to right, transparent 0%, black 11%, black 100%);
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 11%,
+      black 100%
+    );
+  }
+
+  .hero-photo {
+    object-position: 50% 34%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-picture {
+    width: 60%;
   }
 
   .hero-copy {
-    max-width: min(28rem, 40vw);
+    max-width: min(30rem, 42%);
   }
 }
 
-@media (max-width: 768px) {
-  .hero-image {
-    object-position: 72% 38%;
+@media (min-width: 1366px) {
+  .hero-picture {
+    width: 56%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-copy {
+    max-width: min(20rem, 38%);
   }
 
-  .hero-copy {
-    max-width: min(26rem, 44vw);
+  .hero-copy h1 {
+    font-size: 2.45rem;
+  }
+
+  .hero-intro,
+  .hero-intro-2 {
+    display: none;
   }
 }
 
 @media (max-width: 700px) {
   .hero {
-    min-height: 920px;
+    min-height: 860px;
+  }
+
+  .hero-media-fill {
+    background-image: url("/images/anqi-wang-portrait.jpg");
+    background-position: 50% 14%;
+    filter: blur(10px);
   }
 
   .hero-content {
-    min-height: 920px;
-    align-items: flex-end;
+    min-height: 860px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
     padding-top: 4.5rem;
-    padding-bottom: 1.75rem;
+    padding-bottom: 2.2rem;
   }
 
-  .hero-image {
-    object-position: 52% 12%;
+  .hero-picture {
+    inset: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .hero-photo {
+    object-position: 50% 10%;
   }
 
   .hero-copy {
     max-width: 100%;
+    width: 100%;
+    min-width: 0;
   }
 
   .hero-copy h1 {
-    font-size: 2.55rem;
-    margin-top: 0.7rem;
+    font-size: 2.45rem;
+    margin-top: 0.65rem;
   }
 
+  .hero-field,
   .hero-intro,
   .hero-intro-2 {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    display: none;
   }
 
-  .hero-left-treatment::before {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
     width: 100%;
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 34%,
-      black 58%,
-      black 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 34%,
-      black 58%,
-      black 100%
-    );
+  }
+
+  .hero-actions a {
+    justify-content: center;
+    min-width: 0;
+    padding-inline: 0.55rem;
+    font-size: 0.8125rem;
   }
 
   .hero-left-treatment::after {
     background: linear-gradient(
       180deg,
-      rgba(3, 24, 22, 0.12) 0%,
-      rgba(3, 24, 22, 0.22) 30%,
-      rgba(3, 24, 22, 0.62) 54%,
-      rgba(3, 24, 22, 0.9) 100%
+      rgba(3, 24, 22, 0) 0%,
+      rgba(3, 24, 22, 0.06) 34%,
+      rgba(3, 24, 22, 0.52) 58%,
+      rgba(3, 24, 22, 0.88) 82%,
+      rgba(3, 24, 22, 0.94) 100%
     );
   }
 }

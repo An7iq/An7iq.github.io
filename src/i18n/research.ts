@@ -64,7 +64,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
     institution: "浙江农林大学暨阳学院",
     caseStudy: {
       context:
-        "大型受控河流的洪水频率分析常受非平稳性影响。长江中下游具有较长实测记录，水文气候变率和水库运行都可能在统计上留下印记。本研究以诊断和解释为主，而不作为预报模型。",
+        "大型受控河流的洪水频率分析常受非平稳性影响。长江中下游具有较长实测记录，水文气候变率和水库运行都可能在统计上留下印记。本研究通过诊断和解释，比较洪水分布如何随河段和时间变化。",
       data: "整理了长江中下游四个干流水文站的年洪峰与最大 30 日洪量。协变量包括前期降水窗口、汛期温度、大尺度气候指数以及修正水库指数。",
       dataPoints: [
         "站点：宜昌、螺山、汉口、大通",
@@ -201,15 +201,16 @@ export const researchZh: Record<string, ResearchOverlay> = {
     },
   },
   "seagrass-restoration": {
-    title: "海草修复模拟",
+    title: "海草修复的空间模拟",
     cardSummary:
-      "本硕士学位论文发展二维元胞自动机模型，比较不同初始种植格局、养分水平与流速条件下的海草修复情景。研究是空间模拟，而非针对某一真实修复地点的预报。",
-    shortSummary: "本硕士学位论文发展空间显式元胞自动机模型，比较海草修复情景。",
+      "本研究构建二维元胞自动机模型，比较不同初始种植格局、养分水平和水流速度下的海草生长与修复情景，分析环境条件和空间配置对修复结果的影响。项目重点是探索不同参数组合下的空间演化过程，而不是对某一具体修复地点进行预测。",
+    shortSummary:
+      "本研究构建二维元胞自动机模型，比较不同初始种植格局、养分水平和水流速度下的海草生长与修复情景。",
     output: "硕士学位论文，2023",
-    yearLabel: "2023年4月–9月",
+    yearLabel: "2023",
     caseStudy: {
       context:
-        "海草修复不仅取决于总种植量，也取决于初始种植的空间格局、养分条件、水动力胁迫、局部邻域相互作用以及生长与损失过程。本硕士学位论文是一项在受控假设下比较修复情景的空间模拟研究，并非针对某一真实修复地点的预报。\n\n项目于 2023 年 4 月至 9 月在帝国理工学院完成，属于 MSc in Computational Methods in Ecology and Evolution。Dr Emma Ransome（生命科学系）指导本论文，Dr Yves Plancherel（地球科学与工程系）为共同导师。",
+        "海草修复不仅取决于总种植量，也取决于初始种植的空间格局、养分条件、水动力胁迫、局部邻域相互作用以及生长与损失过程。本研究比较不同参数组合下的空间演化过程，而不是对某一具体修复地点进行预测。\n\n项目于 2023 年 4 月至 9 月在 Imperial College London 完成，属于 MSc in Computational Methods in Ecology and Evolution。导师：Emma Ransome。共同导师：Yves Plancherel。",
       approachTitle: "模型构建",
       approach:
         "学位论文使用 Python 3.9.12 的面向对象编程，发展了二维空间显式元胞自动机模型。每个网格单元表示局部海草状态，并通过邻域规则以及耦合生长、氮、磷动力学中的环境修正进行更新。一个演化步对应一周。参数取自文献平均值，并可通过用户输入脚本覆盖默认值。\n\n实现了五种初始空间配置：完全覆盖（CCS），所有单元初始占用；空缺（AbS），网格初始为空；随机分布（RIS）；中心种植（CGS）；以及规则间隔的簇状种植（ClGS）。实验同时变化养分水平与流速。养分与流速实验使用合理环境范围内的模拟数据，而非单一野外站点实测。",
@@ -254,15 +255,15 @@ export const researchZh: Record<string, ResearchOverlay> = {
       ],
       contribution:
         "王安奇设计模拟实验，用面向对象编程实现空间显式元胞自动机模型，测试不同初始种植与环境情景，分析覆盖与生长结果，进行统计比较，完成科学可视化，并撰写硕士学位论文。",
-      outputProse: "该项目记录为硕士学位论文。正式论文题目按提交封面原文保留。",
+      outputProse: "硕士学位论文，2023。",
       outputPoints: [
         "MSc in Computational Methods in Ecology and Evolution",
         "Imperial College London",
         "项目时段：2023年4月–9月",
         "硕士学位论文，2023",
-        "正式题目：Modelling Seagrass Growth Growing Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes",
-        "导师：Dr Emma Ransome, Department of Life Science",
-        "共同导师：Dr Yves Plancherel, Department of Earth Sciences and Engineering",
+        "正式题目：Modelling Seagrass Growth Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes",
+        "导师：Emma Ransome",
+        "共同导师：Yves Plancherel",
       ],
       relatedMethods: [
         "Cellular automata",
@@ -275,22 +276,22 @@ export const researchZh: Record<string, ResearchOverlay> = {
     },
   },
   "metal-coselection": {
-    title: "金属共选择与抗微生物耐药",
+    title: "重金属共选择与抗微生物耐药",
     cardSummary:
-      "本本科学位论文将一般最低金属浓度共选择模型与土壤重金属吸附–解吸行为联系起来。WHAM VII 输出用于表征金属浓度与化学形态（包括土壤与溶解有机质），从而使生物有效性能够进入阈值解释。",
+      "本研究将最低金属浓度共选择模型与土壤中重金属的吸附、解吸和化学形态联系起来，并结合 WHAM VII 的模拟结果，分析金属生物有效性对抗微生物耐药共选择阈值的影响。",
     shortSummary:
-      "本本科学位论文利用 WHAM VII 形态模拟，将土壤化学与抗微生物耐药共选择相关的金属浓度联系起来。",
+      "本研究结合 WHAM VII 模拟结果，分析土壤重金属化学形态与抗微生物耐药共选择阈值之间的关系。",
     output: "本科学位论文，2022",
     caseStudy: {
       context:
-        "金属可以共选择抗微生物耐药，但总量对微生物群落实际接触的物质仅提供有限指引。本本科学位论文关注土壤化学与形态如何改变与共选择相关的浓度解释。",
+        "金属可以共选择抗微生物耐药，但总量对微生物群落实际接触的部分只能提供有限信息。本科学位论文关注土壤化学与形态如何改变与共选择相关的浓度解释。导师：Dov Stekel。",
       data: "学位论文采用化学形态模拟，而非新的野外观测。WHAM VII 在给定土壤化学假设下提供模拟金属浓度与形态，包括土壤有机质与溶解有机质。",
       approachTitle: "方法",
       approach:
         "研究将一般最低金属浓度共选择模型与土壤重金属吸附–解吸行为联系起来。WHAM VII 输出表征金属浓度与化学形态，并纳入土壤有机质与溶解有机质，从而使环境生物有效性进入阈值解释。计算处理、分析与可视化在 R 和 Python 中完成。\n\n仅用金属总量可能无法代表微生物群落化学上可利用的部分。因此使用 WHAM VII，将环境化学与形态同抗微生物耐药共选择相关浓度估计联系起来。",
       findingsTitle: "主要结果",
       findings:
-        "学位论文在 WHAM VII 设置下得到模拟最低共选择浓度。这些估计依赖于形态模型中的既定假设，包括土壤化学、有机质与生物有效性的表征方式。它们是建模流程的环境解释，而非实测野外阈值。因本修订未能从原始论文文件中重新提取并核验具体阈值，此处不报告数值。",
+        "学位论文在 WHAM VII 设置下得到模拟最低共选择浓度。这些估计依赖于形态模型中的既定假设，包括土壤化学、有机质与生物有效性的表征方式，因此应理解为建模结果，而不是实测野外阈值。",
       contribution:
         "王安奇发展并应用建模流程，处理 WHAM VII 输出，考察土壤化学与金属形态如何影响共选择估计，完成分析与可视化，并撰写本科学位论文。",
       outputProse: "该项目记录为 2022 年完成的本科学位论文。",
@@ -299,6 +300,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
         "University of Nottingham",
         "学位论文完成于 2022 年",
         "正式题目：A General Model of Minimum Metal Concentration Co-Selection for Antimicrobial Resistance Optimised Using WHAM VII",
+        "导师：Dov Stekel",
       ],
       relatedMethods: [
         "化学形态模拟",

@@ -57,6 +57,8 @@ export type ResearchProject = {
   institution?: string;
   yearLabel?: string;
   degreeLabel?: string;
+  supervisor?: string;
+  coSupervisor?: string;
   links: ResearchLink[];
   featured: boolean;
   group: ResearchGroup;
@@ -118,7 +120,7 @@ export const researchProjects: ResearchProject[] = [
       contribution:
         "Anqi Wang developed the quality-control, event-detection, and XGBoost/SHAP workflows, contributed to interpretation and figure development, and is preparing the first-author manuscript.",
       outputProse:
-        "The work has been presented orally and is being prepared as a first-author journal manuscript. It is not reported here as published.",
+        "The work has been presented orally and is being prepared as a first-author journal manuscript.",
       outputPoints: [
         "Oral presentation, 23rd World Congress of Soil Science, Nanjing, June 2026",
         "First-author manuscript in preparation",
@@ -159,7 +161,7 @@ export const researchProjects: ResearchProject[] = [
       overview:
         "This study examines how flood-frequency distributions changed along the middle–lower Yangtze River from 1960 to 2022. Multi-step nonstationarity diagnostics, GAMLSS, and RF–SHAP are used to compare hydroclimatic and reservoir-related associations across four gauging stations.",
       context:
-        "Flood-frequency analysis in large regulated rivers is complicated by nonstationarity. The middle–lower Yangtze provides a long gauged record in which hydroclimatic variability and reservoir operation can both leave statistical signatures. The study is framed as an explanatory and diagnostic analysis rather than a forecasting model, and it avoids deterministic claims about reservoirs or climate modes.",
+        "Flood-frequency analysis in large regulated rivers is complicated by nonstationarity. The middle–lower Yangtze provides a long gauged record in which hydroclimatic variability and reservoir operation can both leave statistical signatures. This study uses diagnostic and explanatory analysis to compare how flood distributions change across reaches and over time.",
       data: "Annual flood peaks and maximum 30-day flood volumes were compiled for four main-stem stations spanning the middle–lower Yangtze. Covariate families include antecedent precipitation windows, flood-season temperature, large-scale climate indices, and a modified reservoir index.",
       dataPoints: [
         "Stations: Yichang, Luoshan, Hankou, and Datong",
@@ -173,7 +175,7 @@ export const researchProjects: ResearchProject[] = [
       contribution:
         "Anqi Wang contributed to the hydrologic time-series analysis, nonstationarity diagnostics, GAMLSS modelling, and interpretation of hydroclimatic and reservoir-related associations.",
       outputProse:
-        "The manuscript is under review and is listed separately from published work.",
+        "The manuscript is under review.",
       outputPoints: [
         "Under review at Journal of Hydrology: Regional Studies",
       ],
@@ -233,7 +235,7 @@ export const researchProjects: ResearchProject[] = [
       contribution:
         "Anqi Wang contributed to chronology alignment, signal-window feature engineering, model benchmarking, error analysis, scientific visualisation, and manuscript development in an interdisciplinary collaboration.",
       outputProse:
-        "A first-author manuscript is in preparation. The project is not reported here as published.",
+        "A first-author manuscript is in preparation.",
       outputPoints: ["Manuscript in preparation"],
       relatedMethods: [
         "Time-series segmentation",
@@ -292,7 +294,7 @@ export const researchProjects: ResearchProject[] = [
       contribution:
         "Anqi Wang contributed quantitative analysis, interpretation, and manuscript development to the collaborative paper now under review.",
       outputProse:
-        "The manuscript is under review and is listed separately from published work.",
+        "The manuscript is under review.",
       outputPoints: ["Under review at Cities"],
       relatedMethods: [
         "Geospatial analysis",
@@ -333,18 +335,18 @@ export const researchProjects: ResearchProject[] = [
     caseStudy: {
       skipOverview: true,
       context:
-        "This Tsinghua-affiliated collaboration ran from November 2023 to March 2024. It focused on global ocean carbonate-ion variability using observational records and Earth-system model outputs, rather than constituting an independent first-author programme or a completed publication.",
+        "This Tsinghua-affiliated collaboration ran from November 2023 to March 2024. It focused on global ocean carbonate-ion variability using observational records and Earth-system model outputs.",
       data: "The collaboration assembled heterogeneous observational products and Earth-system model fields describing physical and biogeochemical predictors relevant to carbonate-ion conditions, including datasets with different spatial coverage, temporal structure, and variable definitions.",
       approach:
         "Physical and biogeochemical predictors were harmonised across sources, then screened for consistency and spatial coverage. The resulting layers were organised as reproducible, model-ready datasets to support subsequent machine-learning analysis of environmental relationships.",
       approachTitle: "Data integration",
       findings:
-        "The contribution is methodological: a documented route from heterogeneous observational and model archives to analysis-ready fields. Independent first-author results or a completed paper are not claimed here.",
+        "The contribution is methodological: a documented route from heterogeneous observational and model archives to analysis-ready fields.",
       findingsTitle: "Role of the work",
       contribution:
         "Anqi Wang harmonised environmental predictors across heterogeneous observational and model datasets, carried out consistency and coverage checks, prepared reproducible model-ready data, and contributed to machine-learning analysis of environmental relationships.",
       outputProse:
-        "The work is recorded as collaborative research affiliated with Tsinghua, not as a standalone first-author project or a published paper.",
+        "The work is a Tsinghua-affiliated collaboration.",
       outputPoints: [
         "Tsinghua-affiliated Project",
         "November 2023–March 2024",
@@ -376,8 +378,10 @@ export const researchProjects: ResearchProject[] = [
     image: null,
     imageAlt: "",
     institution: "Imperial College London",
-    yearLabel: "April–September 2023",
+    yearLabel: "2023",
     degreeLabel: "MSc in Computational Methods in Ecology and Evolution",
+    supervisor: "Emma Ransome",
+    coSupervisor: "Yves Plancherel",
     links: [
       {
         label: "View academic GitHub",
@@ -389,7 +393,7 @@ export const researchProjects: ResearchProject[] = [
     caseStudy: {
       skipOverview: true,
       context:
-        "Seagrass restoration depends not only on total planting effort but also on the spatial arrangement of initial planting, nutrient conditions, hydrodynamic stress, local neighbourhood interactions, growth, and loss. This MSc dissertation was a spatial simulation study designed to compare restoration scenarios under controlled assumptions. It was not a forecast for one real restoration site.\n\nThe project was completed at Imperial College London between April and September 2023 for the MSc in Computational Methods in Ecology and Evolution. Dr Emma Ransome (Department of Life Science) supervised the dissertation, and Dr Yves Plancherel (Department of Earth Sciences and Engineering) was co-supervisor.",
+        "Seagrass restoration depends not only on total planting effort but also on the spatial arrangement of initial planting, nutrient conditions, hydrodynamic stress, local neighbourhood interactions, growth, and loss. This MSc dissertation compared restoration scenarios under controlled assumptions, focusing on spatial evolution across parameter combinations rather than prediction for one real restoration site.\n\nThe project was completed at Imperial College London between April and September 2023 for the MSc in Computational Methods in Ecology and Evolution. Supervisor: Emma Ransome. Co-supervisor: Yves Plancherel.",
       approachTitle: "Model development",
       approach:
         "The dissertation developed a two-dimensional, spatially explicit cellular-automata model using object-oriented programming in Python 3.9.12. Each grid cell represented local seagrass state and was updated through neighbourhood rules together with environmental modifiers drawn from coupled growth, nitrogen, and phosphorus kinetics. One evolution step corresponded to one week. Parameters were taken from literature averages, with a user-input script available to override defaults.\n\nFive initial spatial configurations were implemented: complete cover (CCS), in which every cell began occupied; absence (AbS), in which the grid began empty; random distribution (RIS); central planting (CGS); and clustered planting (ClGS), with regularly spaced clusters. The experiments also varied nutrient levels and current velocity. Nutrient and current-velocity experiments used mock data selected within reasonable environmental ranges rather than measurements from a single field site.",
@@ -435,15 +439,15 @@ export const researchProjects: ResearchProject[] = [
       contribution:
         "Anqi Wang designed the simulation experiments, implemented the spatially explicit cellular-automata model using object-oriented programming, tested alternative initial planting and environmental scenarios, analysed coverage and growth outcomes, conducted statistical comparisons, produced the scientific visualisations, and wrote the MSc dissertation.",
       outputProse:
-        "The project is recorded as an MSc dissertation. The official dissertation title is preserved exactly as it appears on the submitted cover.",
+        "MSc dissertation, 2023.",
       outputPoints: [
         "MSc in Computational Methods in Ecology and Evolution",
         "Imperial College London",
         "Project period: April–September 2023",
         "MSc dissertation, 2023",
-        "Official title: Modelling Seagrass Growth Growing Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes",
-        "Supervisor: Dr Emma Ransome, Department of Life Science",
-        "Co-supervisor: Dr Yves Plancherel, Department of Earth Sciences and Engineering",
+        "Official title: Modelling Seagrass Growth Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes",
+        "Supervisor: Emma Ransome",
+        "Co-supervisor: Yves Plancherel",
       ],
       relatedMethods: [
         "Cellular automata",
@@ -475,20 +479,21 @@ export const researchProjects: ResearchProject[] = [
     institution: "University of Nottingham",
     yearLabel: "2022",
     degreeLabel: "BSc (Hons) Environmental Science",
+    supervisor: "Dov Stekel",
     links: [],
     featured: false,
     group: "dissertation",
     caseStudy: {
       skipOverview: true,
       context:
-        "Metals can co-select for antimicrobial resistance, but bulk totals are a limited guide to what microbial communities actually encounter. This BSc dissertation asked how soil chemistry and speciation change the interpretation of concentrations associated with co-selection.",
+        "Metals can co-select for antimicrobial resistance, but bulk totals are a limited guide to what microbial communities actually encounter. This BSc dissertation asked how soil chemistry and speciation change the interpretation of concentrations associated with co-selection. Supervisor: Dov Stekel.",
       data: "The dissertation used chemical-speciation modelling rather than a new field campaign. WHAM VII provided modelled metal concentration and speciation under stated soil-chemistry assumptions, including soil organic matter and dissolved organic matter.",
       approachTitle: "Methods",
       approach:
         "The study connected a general minimum metal concentration co-selection model with soil heavy-metal adsorption and desorption behaviour. WHAM VII outputs represented metal concentration and chemical speciation, with soil organic matter and dissolved organic matter included so that environmental bioavailability could enter threshold interpretation. Computational processing, analysis, and visualisation were carried out in R and Python.\n\nTotal metal concentration alone may not represent the fraction of a metal that is chemically available to microbial communities. WHAM VII was therefore used to connect environmental chemistry and speciation with estimates of concentrations associated with antimicrobial-resistance co-selection.",
       findingsTitle: "Findings",
       findings:
-        "The dissertation produced modelled minimum co-selection concentrations under the WHAM VII setup. Those estimates depend on the stated assumptions in the speciation model, including how soil chemistry, organic matter, and bioavailability were represented. They are environmental interpretations of a modelling workflow, not measured field thresholds. Numerical threshold values are not reported here because they could not be re-extracted and verified from the original dissertation file for this revision.",
+        "The dissertation produced modelled minimum co-selection concentrations under the WHAM VII setup. Those estimates depend on the stated assumptions in the speciation model, including how soil chemistry, organic matter, and bioavailability were represented, and should be read as modelled results rather than measured field thresholds.",
       contribution:
         "Anqi Wang developed and applied the modelling workflow, processed WHAM VII outputs, examined how soil chemistry and metal speciation affected co-selection estimates, produced the analyses and visualisations, and wrote the BSc dissertation.",
       outputProse: "The project is recorded as a BSc dissertation completed in 2022.",
@@ -497,6 +502,7 @@ export const researchProjects: ResearchProject[] = [
         "University of Nottingham",
         "Dissertation completed in 2022",
         "Official title: A General Model of Minimum Metal Concentration Co-Selection for Antimicrobial Resistance Optimised Using WHAM VII",
+        "Supervisor: Dov Stekel",
       ],
       relatedMethods: [
         "Chemical speciation modelling",

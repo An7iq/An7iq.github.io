@@ -20,18 +20,18 @@ const actionDefs = [
 export function Hero({ locale }: { locale: Locale }) {
   const copy = locale === "zh" ? siteZh : site;
   const heading = locale === "zh" ? siteZh.name : site.name;
+  const alt = locale === "zh" ? siteZh.portraitAlt : site.hero.alt;
 
   return (
     <section className="hero">
-      <picture className="hero-picture">
-        <source media="(max-width: 700px)" srcSet={site.portrait.src} />
-        <img
-          className="hero-image"
-          src={site.hero.src}
-          alt={locale === "zh" ? siteZh.portraitAlt : site.hero.alt}
-        />
-      </picture>
-      <div className="hero-left-treatment" aria-hidden="true" />
+      <div className="hero-media">
+        <div className="hero-media-fill" aria-hidden="true" />
+        <picture className="hero-picture">
+          <source media="(max-width: 700px)" srcSet={site.portrait.src} />
+          <img className="hero-photo" src={site.hero.src} alt={alt} />
+        </picture>
+        <div className="hero-left-treatment" aria-hidden="true" />
+      </div>
       <Container className="hero-content">
         <div className="hero-copy">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
@@ -41,14 +41,14 @@ export function Hero({ locale }: { locale: Locale }) {
             {heading}
           </h1>
           <p className="mt-5 text-xl text-white/90 sm:text-2xl">{copy.role}</p>
-          <p className="mt-1 text-lg text-white/65 sm:text-xl">{copy.subtitle}</p>
+          <p className="hero-field mt-1 text-lg text-white/65 sm:text-xl">{copy.subtitle}</p>
           <p className="hero-intro mt-6 max-w-xl text-lg leading-relaxed text-white/85">
             {copy.intro}
           </p>
           <p className="hero-intro-2 mt-3 max-w-xl text-base leading-relaxed text-white/80">
             {copy.intro2}
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="hero-actions mt-8 flex flex-wrap items-center gap-3">
             {actionDefs.map((action) => {
               const Icon = action.icon;
               return (

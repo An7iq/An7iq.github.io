@@ -11,13 +11,14 @@ export function AboutView({ locale }: { locale: Locale }) {
       <Container>
         <SectionHeading
           as="h1"
-          kicker={ui.aboutKicker[locale]}
           title={ui.aboutTitle[locale]}
+          description={ui.aboutSubtitle[locale]}
         />
         <div className="mt-10 max-w-3xl space-y-5 rounded-2xl border border-sand bg-white p-6 text-lg leading-relaxed text-ink/85 shadow-[0_10px_28px_rgba(27,36,32,0.07)] sm:p-8">
           <p>{ui.aboutP1[locale]}</p>
           <p>{ui.aboutP2[locale]}</p>
           <p>{ui.aboutP3[locale]}</p>
+          <p>{ui.aboutP4[locale]}</p>
           <p className="text-base text-muted">{domains.join(" · ")}</p>
         </div>
       </Container>

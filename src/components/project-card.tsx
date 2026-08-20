@@ -158,9 +158,15 @@ export function DissertationCard({
   const href = localizeHref(`/research/${project.slug}/`, locale);
   const meta = [
     project.degreeLabel,
-    project.institution,
-    project.yearLabel,
+    [project.institution, project.yearLabel].filter(Boolean).join(" · "),
   ].filter(Boolean);
+  const supervisorPunct = locale === "zh" ? "：" : ": ";
+  const supervisorLine = project.supervisor
+    ? `${ui.supervisor[locale]}${supervisorPunct}${project.supervisor}`
+    : null;
+  const coSupervisorLine = project.coSupervisor
+    ? `${ui.coSupervisor[locale]}${supervisorPunct}${project.coSupervisor}`
+    : null;
 
   return (
     <article className={`${cardSurface} p-6 sm:p-8`}>
@@ -173,9 +179,13 @@ export function DissertationCard({
         </Link>
       </h3>
       {meta.length ? (
-        <p className="mt-2 text-sm leading-relaxed text-muted">
-          {meta.join(" · ")}
-        </p>
+        <div className="mt-2 space-y-1 text-sm leading-relaxed text-muted">
+          {meta.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+          {supervisorLine ? <p>{supervisorLine}</p> : null}
+          {coSupervisorLine ? <p>{coSupervisorLine}</p> : null}
+        </div>
       ) : null}
       <p className="mt-4 text-[0.98rem] leading-relaxed text-ink/80">
         {project.cardSummary}

@@ -101,6 +101,20 @@ export function ProjectView({
               .join(" · ")}
           </p>
         )}
+        {(project.supervisor || project.coSupervisor) && (
+          <p className="mt-2 text-sm text-pine-deep">
+            {[
+              project.supervisor
+                ? `${ui.supervisor[locale]}${locale === "zh" ? "：" : ": "}${project.supervisor}`
+                : null,
+              project.coSupervisor
+                ? `${ui.coSupervisor[locale]}${locale === "zh" ? "：" : ": "}${project.coSupervisor}`
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
+          </p>
+        )}
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink/80">
           {project.cardSummary}
         </p>

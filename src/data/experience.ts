@@ -41,7 +41,7 @@ export const experience: ExperienceItem[] = [
     location: { en: "China", zh: "中国" },
     advisors: {
       en: ["Yuchuan Fan"],
-      zh: ["范玉川"],
+      zh: ["范豫川"],
     },
     summary: {
       en: "Conduct data processing, statistical analysis, model development, and scientific interpretation for projects in smart agriculture, hydrology, ecological resilience, non-rainfall water, and groundwater protection. Contribute to research proposals, manuscript writing, figure preparation, journal submissions and revisions, and student research support.",
@@ -69,7 +69,7 @@ export const experience: ExperienceItem[] = [
     location: { en: "China", zh: "中国" },
     advisors: {
       en: ["Lei Zhou", "Xiaoying Gan"],
-      zh: ["周磊", "甘晓莹"],
+      zh: ["周磊", "甘小莺"],
     },
     summary: {
       en: "Integrated ice-core chemical records, volcanic-event catalogues, and alternative chronologies; developed signal-window features and XGBoost detection workflows; and contributed to sample construction, model comparison, error analysis, and age-offset evaluation.",

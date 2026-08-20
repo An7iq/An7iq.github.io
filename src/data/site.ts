@@ -30,13 +30,13 @@ export const site = {
     height: 1024,
   },
   domains: [
-    "environmental and Earth-system science",
     "hydrology and hydroclimate",
-    "ecological modelling",
-    "marine and aquatic systems",
     "agroecosystems",
+    "ecological modelling",
+    "environmental data analysis",
+    "machine learning",
+    "Earth-system data",
     "palaeoclimate",
-    "environmental machine learning",
   ],
   social: {
     github: "https://github.com/An7iq",
@@ -53,18 +53,18 @@ export const siteZh = {
   role: "环境数据分析与建模",
   subtitle: "面向水文、农业生态与地球系统的数据驱动研究",
   intro:
-    "我关注水文、农业生态与地球系统中的环境问题，结合多源数据、统计模型和机器学习开展分析。",
+    "我使用多源环境数据、统计模型和机器学习方法，研究水文、农业生态与地球系统中的环境过程。",
   intro2:
     "目前主要研究非降水水分、非平稳洪水、生态韧性与冰芯火山信号识别。",
   positioning: "以数据、模型和计算方法理解跨尺度环境过程。",
   domains: [
-    "环境与地球系统科学",
     "水文与水文气候",
-    "生态模拟",
-    "海洋与水生系统",
     "农业生态系统",
+    "生态建模",
+    "环境数据分析",
+    "机器学习",
+    "地球系统数据",
     "古气候",
-    "环境机器学习",
   ],
   portraitAlt: "王安奇在帝国理工学院建筑外手持装订的学术材料。",
 } as const;
