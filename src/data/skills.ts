@@ -4,6 +4,18 @@ export type SkillGroup = {
   items: string[];
 };
 
+export const homeMethods = [
+  "Environmental Data Analysis",
+  "Statistical Modelling",
+  "Machine Learning",
+  "Time-Series Analysis",
+  "Geospatial Analysis",
+  "Data–Model Integration",
+];
+
+export const homeTools =
+  "Python · R · XGBoost · Random Forest · SHAP · GAMLSS · xarray/NetCDF · GIS/GEE";
+
 export const skillGroups: SkillGroup[] = [
   {
     title: "Programming & Scientific Computing",

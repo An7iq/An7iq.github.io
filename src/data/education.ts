@@ -19,5 +19,6 @@ export const education: EducationItem[] = [
     institution: "University of Nottingham",
     years: "2019–2022",
     result: "Second Class Honours, Division One",
+    note: "Dissertation: A General Model of Minimum Metal Concentration Co-Selection for Antimicrobial Resistance Optimised Using WHAM VII.",
   },
 ];

@@ -1,21 +1,15 @@
-import { About } from "@/components/about";
-import { Education } from "@/components/education";
-import { Experience } from "@/components/experience";
+import { CvStrip } from "@/components/cv-strip";
+import { FeaturedResearch } from "@/components/featured-research";
 import { Hero } from "@/components/hero";
-import { Publications } from "@/components/publications";
-import { Research } from "@/components/research";
-import { Skills } from "@/components/skills";
+import { HomeSummary } from "@/components/home-summary";
 
 export default function Home() {
   return (
     <main id="main">
       <Hero />
-      <About />
-      <Research />
-      <Publications />
-      <Experience />
-      <Education />
-      <Skills />
+      <FeaturedResearch />
+      <HomeSummary />
+      <CvStrip />
     </main>
   );
 }

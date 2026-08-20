@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { ResearchCard } from "@/components/research-card";
+import { ProjectCard, TextProject } from "@/components/project-card";
 import { Container, SectionHeading } from "@/components/section";
-import {
-  additionalProjects,
-  featuredProjects,
-  researchProjects,
-} from "@/data/research";
+import { currentProjects, earlierProjects } from "@/data/research";
 
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Selected and additional research projects by Anqi Wang across environmental and Earth-system science.",
+    "Current, recent, and earlier research by Anqi Wang across environmental and Earth-system science.",
 };
 
 export default function ResearchPage() {
@@ -20,39 +16,37 @@ export default function ResearchPage() {
         <SectionHeading
           as="h1"
           kicker="Research"
-          title="All projects"
-          description="Featured studies first, followed by additional modelling and data projects."
+          title="Projects"
+          description="Current and recent work first, followed by earlier dissertation and internship projects."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <ResearchCard
-              key={project.slug}
-              project={project}
-              index={index}
-              featured
-            />
-          ))}
+        <h2 className="mt-12 font-serif text-3xl tracking-tight text-ink">
+          Current &amp; recent research
+        </h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {currentProjects
+            .filter((project) => project.image)
+            .map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} compact />
+            ))}
+        </div>
+        <div className="mt-4">
+          {currentProjects
+            .filter((project) => !project.image)
+            .map((project) => (
+              <TextProject key={project.slug} project={project} />
+            ))}
         </div>
         <h2 className="mt-16 font-serif text-3xl tracking-tight text-ink">
-          Additional projects
+          Earlier research
         </h2>
         <p className="mt-3 max-w-2xl text-muted">
-          Earlier dissertation, internship, and collaboration work. These are
-          included for context and are described conservatively.
+          Dissertation and internship work, described conservatively. These
+          entries are text-only where no original project figure is available.
         </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {additionalProjects.map((project) => {
-            const index = researchProjects.findIndex(
-              (item) => item.slug === project.slug,
-            );
-            return (
-              <ResearchCard
-                key={project.slug}
-                project={project}
-                index={index}
-              />
-            );
-          })}
+        <div className="mt-4 max-w-3xl">
+          {earlierProjects.map((project) => (
+            <TextProject key={project.slug} project={project} />
+          ))}
         </div>
       </Container>
     </main>

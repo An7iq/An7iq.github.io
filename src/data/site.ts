@@ -35,10 +35,11 @@ export const site = {
 } as const;
 
 export const navItems = [
-  { href: "/#about", label: "About" },
-  { href: "/#research", label: "Research" },
-  { href: "/#publications", label: "Publications" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#education", label: "Education" },
+  { href: "/about/", label: "About" },
+  { href: "/research/", label: "Research" },
+  { href: "/publications/", label: "Publications" },
+  { href: "/experience/", label: "Experience" },
+  { href: "/education/", label: "Education" },
+  { href: "/methods/", label: "Methods" },
   { href: "/cv/", label: "CV" },
 ] as const;

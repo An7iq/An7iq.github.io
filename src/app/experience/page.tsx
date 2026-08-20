@@ -1,12 +1,18 @@
-import { Container, Section, SectionHeading } from "@/components/section";
+import type { Metadata } from "next";
+import { Container, SectionHeading } from "@/components/section";
 import { experience } from "@/data/experience";
 
-export function Experience() {
+export const metadata: Metadata = {
+  title: "Experience",
+  description: "Research appointments and collaborations.",
+};
+
+export default function ExperiencePage() {
   return (
-    <Section id="experience" className="bg-paper-2/40">
+    <main id="main" className="pb-20 pt-12 sm:pb-28 sm:pt-16">
       <Container>
-        <SectionHeading kicker="Experience" title="Research appointments" />
-        <ol className="relative mt-12 border-l border-sand pl-6 sm:pl-8">
+        <SectionHeading as="h1" kicker="Experience" title="Research appointments" />
+        <ol className="relative mt-12 max-w-3xl border-l border-sand pl-6 sm:pl-8">
           {experience.map((item) => (
             <li key={`${item.role}-${item.org}`} className="relative pb-10 last:pb-0">
               <span
@@ -16,15 +22,15 @@ export function Experience() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pine">
                 {item.start} – {item.end}
               </p>
-              <h3 className="mt-2 font-serif text-2xl text-ink">{item.role}</h3>
+              <h2 className="mt-2 font-serif text-2xl text-ink">{item.role}</h2>
               <p className="mt-1 text-muted">
                 {item.org} · {item.location}
               </p>
-              <p className="mt-3 max-w-2xl leading-relaxed text-ink/80">{item.summary}</p>
+              <p className="mt-3 leading-relaxed text-ink/80">{item.summary}</p>
             </li>
           ))}
         </ol>
       </Container>
-    </Section>
+    </main>
   );
 }
