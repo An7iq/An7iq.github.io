@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/section";
+import { ExternalIcon } from "@/components/icons";
 import type { CaseStudyFigure, ResearchProject } from "@/data/research";
 import { ui } from "@/i18n/ui";
 import { localizeHref, type Locale } from "@/lib/i18n";
@@ -103,16 +104,29 @@ export function ProjectView({
         )}
         {(project.supervisor || project.coSupervisor) && (
           <p className="mt-2 text-sm text-pine-deep">
-            {[
-              project.supervisor
-                ? `${ui.supervisor[locale]}${locale === "zh" ? "：" : ": "}${project.supervisor}`
-                : null,
-              project.coSupervisor
-                ? `${ui.coSupervisor[locale]}${locale === "zh" ? "：" : ": "}${project.coSupervisor}`
-                : null,
-            ]
-              .filter(Boolean)
-              .join(" · ")}
+            {project.supervisor ? (
+              <>
+                {project.supervisorLabel ?? ui.supervisor[locale]}
+                {locale === "zh" ? "：" : ": "}
+                {project.advisorHref ? (
+                  <a
+                    href={project.advisorHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-medium text-pine hover:text-pine-deep"
+                  >
+                    {project.supervisor}
+                    <ExternalIcon className="size-3.5 shrink-0" />
+                  </a>
+                ) : (
+                  project.supervisor
+                )}
+              </>
+            ) : null}
+            {project.supervisor && project.coSupervisor ? " · " : null}
+            {project.coSupervisor
+              ? `${ui.coSupervisor[locale]}${locale === "zh" ? "：" : ": "}${project.coSupervisor}`
+              : null}
           </p>
         )}
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink/80">

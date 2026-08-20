@@ -1,4 +1,5 @@
 import { Container, SectionHeading } from "@/components/section";
+import { ArrowRightIcon } from "@/components/icons";
 import { education, educationCopy } from "@/data/education";
 import { ui } from "@/i18n/ui";
 import type { Locale } from "@/lib/i18n";
@@ -7,12 +8,26 @@ export function EducationView({ locale }: { locale: Locale }) {
   return (
     <main id="main" className="pb-20 pt-12 sm:pb-28 sm:pt-16">
       <Container>
-        <SectionHeading
-          as="h1"
-          kicker={ui.educationKicker[locale]}
-          title={ui.educationTitle[locale]}
-          description={ui.educationDescription[locale]}
-        />
+        {locale === "zh" ? (
+          <div className="max-w-2xl">
+            <h1 className="font-serif text-3xl tracking-tight text-ink sm:text-4xl">
+              {ui.educationKicker.zh}
+            </h1>
+            <p className="mt-3 font-serif text-2xl text-ink">
+              {ui.educationTitle.zh}
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-muted">
+              {ui.educationDescription.zh}
+            </p>
+          </div>
+        ) : (
+          <SectionHeading
+            as="h1"
+            kicker={ui.educationKicker.en}
+            title={ui.educationTitle.en}
+            description={ui.educationDescription.en}
+          />
+        )}
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {education.map((item) => {
             const copy = educationCopy(item, locale);
@@ -40,6 +55,19 @@ export function EducationView({ locale }: { locale: Locale }) {
                 <p className="mt-4 text-sm leading-relaxed text-muted">
                   {copy.note}
                 </p>
+                {item.githubHref ? (
+                  <p className="mt-4">
+                    <a
+                      href={item.githubHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-pine hover:text-pine-deep"
+                    >
+                      {ui.viewMscGithub[locale]}
+                      <ArrowRightIcon className="size-4" />
+                    </a>
+                  </p>
+                ) : null}
               </article>
             );
           })}

@@ -8,6 +8,7 @@ export type EducationItem = {
   note: Localized;
   supervisor?: Localized;
   coSupervisor?: Localized;
+  githubHref?: string;
 };
 
 export const education: EducationItem[] = [
@@ -28,6 +29,7 @@ export const education: EducationItem[] = [
       en: "Dissertation: Modelling Seagrass Growth Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes.",
       zh: "学位论文：Modelling Seagrass Growth Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes.",
     },
+    githubHref: "https://github.com/AnqiW222",
   },
   {
     degree: "BSc (Hons) Environmental Science",

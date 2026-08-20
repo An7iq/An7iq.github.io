@@ -1,4 +1,5 @@
 import { Container, SectionHeading } from "@/components/section";
+import { ExternalIcon } from "@/components/icons";
 import {
   academicService,
   earlierInternships,
@@ -28,7 +29,24 @@ function ExperienceList({
           (advisorNames.length > 1 ? ui.advisors[locale] : ui.advisor[locale]);
         const advisorJoin = locale === "zh" ? "、" : " and ";
         const advisorPunct = locale === "zh" ? "：" : ": ";
-        const orgLine = copy.location ? `${copy.org} · ${copy.location}` : copy.org;
+        const showLocation =
+          Boolean(copy.location) && !(locale === "zh" && copy.location === "中国");
+        const orgLine = showLocation ? `${copy.org} · ${copy.location}` : copy.org;
+        const advisorName = advisorNames.join(advisorJoin);
+        const advisorNameNode =
+          item.advisorHref && advisorName ? (
+            <a
+              href={item.advisorHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-medium text-pine hover:text-pine-deep"
+            >
+              {advisorName}
+              <ExternalIcon className="size-3.5 shrink-0" />
+            </a>
+          ) : (
+            advisorName
+          );
         return (
           <li key={item.id} className="relative pb-10 last:pb-0">
             <span
@@ -56,7 +74,7 @@ function ExperienceList({
               <p className="mt-2 text-sm text-pine-deep">
                 {advisorLabel}
                 {advisorPunct}
-                {advisorNames.join(advisorJoin)}
+                {advisorNameNode}
               </p>
             ) : null}
             <p className="mt-3 leading-relaxed text-ink/80">{copy.summary}</p>

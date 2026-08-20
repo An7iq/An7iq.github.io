@@ -134,11 +134,11 @@ export const ui = {
   advisor: { en: "Advisor", zh: "导师" },
   advisors: { en: "Advisors", zh: "导师" },
   publicationDetails: { en: "Publication details", zh: "查看出版信息" },
-  educationTitle: { en: "Degrees", zh: "教育背景" },
+  educationTitle: { en: "Degrees", zh: "学位与论文" },
   educationKicker: { en: "Education", zh: "教育背景" },
   educationDescription: {
-    en: "Degrees from Imperial College London and the University of Nottingham.",
-    zh: "帝国理工学院与诺丁汉大学的学位。",
+    en: "Degree studies and dissertation research completed at Imperial College London and the University of Nottingham.",
+    zh: "在帝国理工学院和诺丁汉大学完成的学位学习与毕业研究。",
   },
   methodsTitle: { en: "Working methods", zh: "方法与技能" },
   methodsKicker: { en: "Methods", zh: "方法与技能" },
@@ -150,6 +150,10 @@ export const ui = {
   coSupervisor: { en: "Co-supervisor", zh: "共同导师" },
   languagesLabel: { en: "Languages", zh: "语言" },
   academicProfile: { en: "Academic code profile · AnqiW222", zh: "学术代码主页 · AnqiW222" },
+  viewMscGithub: {
+    en: "View MSc coursework and project work on GitHub",
+    zh: "查看硕士课程与项目代码",
+  },
   viewAcademicGithub: { en: "View academic GitHub", zh: "查看学术 GitHub" },
   figureFullSize: {
     en: "Open the figure to view it at full size.",

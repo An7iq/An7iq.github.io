@@ -20,6 +20,7 @@ export type ExperienceItem = {
   detailLines?: Localized<string[]>;
   advisors?: Localized<string[]>;
   advisorLabel?: Localized;
+  advisorHref?: string;
   isbn?: Localized;
   publicationHref?: string;
   summary: Localized;
@@ -374,11 +375,18 @@ export const experience: ExperienceItem[] = [
       zh: "清华大学",
     },
     location: { en: "China", zh: "中国" },
+    advisors: {
+      en: ["Dr Pengfei Ma"],
+      zh: ["马鹏飞博士"],
+    },
+    advisorLabel: {
+      en: "Research mentor",
+      zh: "导师",
+    },
     summary: {
       en: "Characterised nonlinear multivariate dependence in ocean-current time series using R-vine copula models.",
-      zh: "利用 R-vine copula 模型分析海流时间序列中的非线性多元依赖结构。",
+      zh: "利用 R-vine Copula 模型分析海流时间序列中的非线性多元依赖结构。",
     },
-    homeOrder: 4,
   },
   {
     id: "nyu-intern",
@@ -398,9 +406,18 @@ export const experience: ExperienceItem[] = [
       zh: "纽约大学",
     },
     location: { en: "Online", zh: "线上" },
+    advisors: {
+      en: ["Prof. David Holland"],
+      zh: ["David Holland 教授"],
+    },
+    advisorLabel: {
+      en: "Academic mentor",
+      zh: "项目导师",
+    },
+    advisorHref: "https://math.nyu.edu/people/profiles/HOLLAND_David.html",
     summary: {
-      en: "Modelled long-term pollutant transport and spatial spread in the Pacific Ocean.",
-      zh: "模拟太平洋污染物的长期输运与空间扩散。",
+      en: "Developed a numerical modelling study of long-term wastewater transport and spatial dispersion in Pacific Ocean circulation.",
+      zh: "开展太平洋海洋环流中废水长期输运与空间扩散的数值模拟研究。",
     },
   },
 ];

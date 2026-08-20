@@ -321,6 +321,8 @@ export const researchZh: Record<string, ResearchOverlay> = {
       "这次科研实习应用 R-vine copula 方法刻画海流时间序列中的非线性多元相依。",
     output: "科研实习，清华大学，2022",
     institution: "清华大学",
+    supervisor: "马鹏飞博士",
+    supervisorLabel: "导师",
     caseStudy: {
       context:
         "海流记录可呈现联合极值与非线性相依，单一相关系数无法捕捉这些结构。Vine copula 提供由 pair-copula 构建多元相依的结构化途径。",
@@ -332,7 +334,10 @@ export const researchZh: Record<string, ResearchOverlay> = {
       contribution:
         "王安奇在清华大学科研实习期间处理并整合时间序列，实现 R-vine 模型，并完成相关可视化。",
       outputProse: "该项目记录为科研实习。",
-      outputPoints: ["科研实习，清华大学，2022年3月–6月"],
+      outputPoints: [
+        "科研实习，清华大学，2022年3月–6月",
+        "导师：马鹏飞博士",
+      ],
       relatedMethods: ["R-vine copulas", "多元相依", "时间序列分析"],
     },
   },
@@ -344,6 +349,9 @@ export const researchZh: Record<string, ResearchOverlay> = {
       "这项数学建模项目在简化环流假设下考察太平洋排放废水的长期输运与扩散。",
     output: "已发表书章，Springer，2023",
     institution: "纽约大学",
+    supervisor: "David Holland 教授",
+    supervisorLabel: "项目导师",
+    advisorHref: "https://math.nyu.edu/people/profiles/HOLLAND_David.html",
     caseStudy: {
       context:
         "开放大洋中排放废水的长期扩散常在观测约束有限的情况下讨论。简化的环流–扩散模型可以在既定假设下说明空间扩散，而不假装成为完整的海洋环流模拟。",
@@ -357,6 +365,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
       outputProse: "该实习形成已发表书章。",
       outputPoints: [
         "科研实习，纽约大学，2021年5月–7月",
+        "项目导师：David Holland 教授",
         "Wang, A. (2023). The long-term diffusion of dumped wastewater from Japan in the Pacific Ocean. In Environmental Pollution Governance and Ecological Remediation Technology (pp. 261–269). Springer.",
       ],
       relatedMethods: ["海洋环流模拟", "扩散模拟", "污染物输运"],

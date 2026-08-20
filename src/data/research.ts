@@ -59,6 +59,8 @@ export type ResearchProject = {
   degreeLabel?: string;
   supervisor?: string;
   coSupervisor?: string;
+  supervisorLabel?: string;
+  advisorHref?: string;
   links: ResearchLink[];
   featured: boolean;
   group: ResearchGroup;
@@ -531,6 +533,8 @@ export const researchProjects: ResearchProject[] = [
     imageAlt: "",
     institution: "Tsinghua University",
     yearLabel: "2022",
+    supervisor: "Dr Pengfei Ma",
+    supervisorLabel: "Research mentor",
     links: [],
     featured: false,
     group: "collaborative",
@@ -548,7 +552,10 @@ export const researchProjects: ResearchProject[] = [
       contribution:
         "Anqi Wang processed and integrated the time series, implemented the R-vine models, and produced the associated visualisations during a research internship at Tsinghua University.",
       outputProse: "The project is recorded as a research internship.",
-      outputPoints: ["Research internship, Tsinghua University, March–June 2022"],
+      outputPoints: [
+        "Research internship, Tsinghua University, March–June 2022",
+        "Research mentor: Dr Pengfei Ma",
+      ],
       relatedMethods: [
         "R-vine copulas",
         "Multivariate dependence",
@@ -570,6 +577,9 @@ export const researchProjects: ResearchProject[] = [
     imageAlt: "",
     institution: "New York University",
     yearLabel: "2021",
+    supervisor: "Prof. David Holland",
+    supervisorLabel: "Academic mentor",
+    advisorHref: "https://math.nyu.edu/people/profiles/HOLLAND_David.html",
     links: [],
     featured: false,
     group: "collaborative",
@@ -589,6 +599,7 @@ export const researchProjects: ResearchProject[] = [
       outputProse: "The internship resulted in a published book chapter.",
       outputPoints: [
         "Research internship, New York University, May–July 2021",
+        "Academic mentor: Prof. David Holland",
         "Wang, A. (2023). The long-term diffusion of dumped wastewater from Japan in the Pacific Ocean. In Environmental Pollution Governance and Ecological Remediation Technology (pp. 261–269). Springer.",
       ],
       relatedMethods: [
