@@ -1,5 +1,11 @@
-import { Container, Section, SectionHeading } from "@/components/section";
+import type { Metadata } from "next";
+import { Container, SectionHeading } from "@/components/section";
 import { conferences, inProgress, published } from "@/data/publications";
+
+export const metadata: Metadata = {
+  title: "Publications",
+  description: "Published work, manuscripts in progress, and conference presentations.",
+};
 
 function Citation({
   authors,
@@ -30,24 +36,25 @@ function Citation({
   );
 }
 
-export function Publications() {
+export default function PublicationsPage() {
   return (
-    <Section id="publications">
+    <main id="main" className="pb-20 pt-12 sm:pb-28 sm:pt-16">
       <Container>
         <SectionHeading
+          as="h1"
           kicker="Outputs"
           title="Publications"
           description="Published work, manuscripts in progress, and conference presentations."
         />
-          <div className="mt-12 grid gap-12 md:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-12 grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <h3 className="font-serif text-2xl text-ink">Published</h3>
+            <h2 className="font-serif text-2xl text-ink">Published</h2>
             <ul className="mt-6">
               {published.map((item) => (
                 <Citation key={item.title} {...item} />
               ))}
             </ul>
-            <h3 className="mt-10 font-serif text-2xl text-ink">Conference</h3>
+            <h2 className="mt-10 font-serif text-2xl text-ink">Conference</h2>
             <ul className="mt-6">
               {conferences.map((item) => (
                 <li key={item.title} className="text-[1.02rem] leading-relaxed text-ink/90">
@@ -63,7 +70,7 @@ export function Publications() {
             </ul>
           </div>
           <div>
-            <h3 className="font-serif text-2xl text-ink">Under review / in preparation</h3>
+            <h2 className="font-serif text-2xl text-ink">Under review / in preparation</h2>
             <ul className="mt-6">
               {inProgress.map((item) => (
                 <Citation key={item.title} {...item} />
@@ -72,6 +79,6 @@ export function Publications() {
           </div>
         </div>
       </Container>
-    </Section>
+    </main>
   );
 }

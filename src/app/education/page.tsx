@@ -1,11 +1,17 @@
-import { Container, Section, SectionHeading } from "@/components/section";
+import type { Metadata } from "next";
+import { Container, SectionHeading } from "@/components/section";
 import { education } from "@/data/education";
 
-export function Education() {
+export const metadata: Metadata = {
+  title: "Education",
+  description: "Degrees from Imperial College London and the University of Nottingham.",
+};
+
+export default function EducationPage() {
   return (
-    <Section id="education">
+    <main id="main" className="pb-20 pt-12 sm:pb-28 sm:pt-16">
       <Container>
-        <SectionHeading kicker="Education" title="Degrees" />
+        <SectionHeading as="h1" kicker="Education" title="Degrees" />
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {education.map((item) => (
             <article
@@ -15,9 +21,9 @@ export function Education() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pine">
                 {item.years}
               </p>
-              <h3 className="mt-3 font-serif text-2xl leading-snug text-ink">
+              <h2 className="mt-3 font-serif text-2xl leading-snug text-ink">
                 {item.degree}
-              </h3>
+              </h2>
               <p className="mt-2 text-muted">{item.institution}</p>
               <p className="mt-3 text-sm font-medium text-pine-deep">{item.result}</p>
               {item.note ? (
@@ -27,6 +33,6 @@ export function Education() {
           ))}
         </div>
       </Container>
-    </Section>
+    </main>
   );
 }

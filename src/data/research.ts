@@ -3,16 +3,24 @@ export type ResearchLink = {
   href: string;
 };
 
+export type ResearchGroup = "current" | "earlier";
+
 export type ResearchProject = {
   slug: string;
   title: string;
   question: string;
   summary: string;
   tags: string[];
+  cardTags: string[];
   output: string;
-  image: string;
+  image: string | null;
+  cardImage?: string;
+  imageAlt: string;
+  imageTone: "light" | "dark";
+  figureCaption?: string;
   links: ResearchLink[];
   featured: boolean;
+  group: ResearchGroup;
 };
 
 export const researchProjects: ResearchProject[] = [
@@ -31,11 +39,17 @@ export const researchProjects: ResearchProject[] = [
       "SHAP",
       "Hydroclimate",
     ],
-    output:
-      "Oral presentation at the 23rd World Congress of Soil Science (2026). First-author manuscript in preparation.",
-    image: "/images/research/non-rainfall-water.svg",
+    cardTags: ["Ecohydrology", "Lysimeter", "XGBoost", "SHAP"],
+    output: "Oral presentation, WCSS 2026 · Manuscript in preparation",
+    image: "/images/research/non-rainfall-water.png",
+    imageAlt:
+      "Generic lysimeter schematic beside a map of multi-site cropland study locations in China.",
+    imageTone: "dark",
+    figureCaption:
+      "Lysimeter water-balance instrumentation and the China multi-site observation network used in the non-rainfall water study.",
     links: [],
     featured: true,
+    group: "current",
   },
   {
     slug: "yangtze-flood-frequency",
@@ -45,10 +59,17 @@ export const researchProjects: ResearchProject[] = [
     summary:
       "Analysis of 63 years of flood records across four major stations in the middle–lower Yangtze River using nonstationarity diagnostics, GAMLSS, and hydroclimatic/reservoir covariates.",
     tags: ["Hydrology", "Flood Extremes", "GAMLSS", "Hydroclimate", "Time Series"],
-    output: "Manuscript under review at Journal of Hydrology: Regional Studies.",
-    image: "/images/research/yangtze-floods.svg",
+    cardTags: ["Hydrology", "Flood Extremes", "GAMLSS", "Hydroclimate"],
+    output: "Under review at Journal of Hydrology: Regional Studies",
+    image: "/images/research/yangtze-floods.png",
+    imageAlt:
+      "Map of the middle–lower Yangtze River Basin showing four hydrological stations and the Three Gorges Dam.",
+    imageTone: "light",
+    figureCaption:
+      "Study area in the middle–lower Yangtze River Basin, with hydrological stations at Yichang, Luoshan, Hankou and Datong.",
     links: [],
     featured: true,
+    group: "current",
   },
   {
     slug: "ice-core-volcanic-signals",
@@ -65,10 +86,17 @@ export const researchProjects: ResearchProject[] = [
       "Chronology",
       "Signal Detection",
     ],
-    output: "Manuscript in preparation.",
-    image: "/images/research/ice-core.svg",
+    cardTags: ["Palaeoclimate", "Ice Cores", "Machine Learning", "Chronology"],
+    output: "Manuscript in preparation",
+    image: "/images/research/ice-core.png",
+    imageAlt:
+      "Three-panel Volcano Hunter workflow from ice-core input data through morphological features to event detection.",
+    imageTone: "light",
+    figureCaption:
+      "Volcano Hunter workflow: ice-core inputs and weak supervision, morphological feature representation, and XGBoost-based event detection.",
     links: [],
     featured: true,
+    group: "current",
   },
   {
     slug: "yangtze-delta-resilience",
@@ -85,10 +113,18 @@ export const researchProjects: ResearchProject[] = [
       "SEM",
       "Urban Systems",
     ],
-    output: "Manuscript under review at Cities.",
-    image: "/images/research/yangtze-delta.svg",
+    cardTags: ["Spatial Ecology", "Random Forest", "SHAP", "SEM"],
+    output: "Under review at Cities",
+    image: "/images/research/yangtze-delta.png",
+    cardImage: "/images/research/yangtze-delta-card.png",
+    imageAlt:
+      "Multi-year maps of ecological potential, elasticity, stability and resilience across the Yangtze River Delta, 2000–2023.",
+    imageTone: "dark",
+    figureCaption:
+      "Spatiotemporal evolution of ecological potential, elasticity, stability and resilience across the Yangtze River Delta urban agglomeration, 2000–2023.",
     links: [],
     featured: true,
+    group: "current",
   },
   {
     slug: "marine-biogeochemistry",
@@ -103,10 +139,14 @@ export const researchProjects: ResearchProject[] = [
       "Earth-System Data",
       "Data Harmonisation",
     ],
-    output: "Research collaboration, 2023–2024.",
-    image: "/images/research/marine-biogeochemistry.svg",
+    cardTags: ["Marine Biogeochemistry", "Ocean Carbon", "Earth-System Data"],
+    output: "Research collaboration, 2023–2024",
+    image: null,
+    imageAlt: "",
+    imageTone: "light",
     links: [],
     featured: false,
+    group: "current",
   },
   {
     slug: "seagrass-restoration",
@@ -121,10 +161,31 @@ export const researchProjects: ResearchProject[] = [
       "Restoration",
       "Marine Systems",
     ],
-    output: "MSc dissertation, Imperial College London, 2023.",
-    image: "/images/research/seagrass.svg",
+    cardTags: ["Ecological Modelling", "Cellular Automata", "Restoration"],
+    output: "MSc dissertation, Imperial College London, 2023",
+    image: null,
+    imageAlt: "",
+    imageTone: "light",
     links: [],
     featured: false,
+    group: "earlier",
+  },
+  {
+    slug: "metal-coselection",
+    title: "Metal Co-selection and Antimicrobial Resistance",
+    question:
+      "How can metal speciation modelling help estimate environmental metal concentrations associated with antimicrobial-resistance co-selection?",
+    summary:
+      "BSc dissertation at the University of Nottingham. Used WHAM VII to model metal speciation and estimate environmental metal concentrations associated with antimicrobial-resistance co-selection.",
+    tags: ["Environmental Chemistry", "Speciation Modelling", "WHAM VII"],
+    cardTags: ["Environmental Chemistry", "Speciation Modelling", "WHAM VII"],
+    output: "BSc dissertation, University of Nottingham, 2022",
+    image: null,
+    imageAlt: "",
+    imageTone: "light",
+    links: [],
+    featured: false,
+    group: "earlier",
   },
   {
     slug: "ocean-current-dependence",
@@ -139,10 +200,14 @@ export const researchProjects: ResearchProject[] = [
       "Multivariate Dependence",
       "Time Series",
     ],
-    output: "Research internship, Tsinghua University, 2022.",
-    image: "/images/research/ocean-currents.svg",
+    cardTags: ["Ocean Currents", "R-vine Copulas", "Time Series"],
+    output: "Research internship, Tsinghua University, 2022",
+    image: null,
+    imageAlt: "",
+    imageTone: "light",
     links: [],
     featured: false,
+    group: "earlier",
   },
   {
     slug: "pacific-pollutant-transport",
@@ -152,13 +217,26 @@ export const researchProjects: ResearchProject[] = [
     summary:
       "Used simplified ocean-circulation and diffusion models to examine long-term pollutant transport and spatial spread in the Pacific Ocean. The work resulted in a published conference/book chapter.",
     tags: ["Ocean Circulation", "Diffusion Modelling", "Pollutant Transport"],
+    cardTags: ["Ocean Circulation", "Diffusion Modelling"],
     output:
-      "Published as a book chapter in Environmental Pollution Governance and Ecological Remediation Technology (Springer, 2023).",
-    image: "/images/research/pacific-transport.svg",
+      "Published book chapter, Springer, 2023",
+    image: null,
+    imageAlt: "",
+    imageTone: "light",
     links: [],
     featured: false,
+    group: "earlier",
   },
 ];
 
 export const featuredProjects = researchProjects.filter((project) => project.featured);
-export const additionalProjects = researchProjects.filter((project) => !project.featured);
+export const currentProjects = researchProjects.filter(
+  (project) => project.group === "current",
+);
+export const earlierProjects = researchProjects.filter(
+  (project) => project.group === "earlier",
+);
+
+export function getProject(slug: string) {
+  return researchProjects.find((project) => project.slug === slug);
+}
