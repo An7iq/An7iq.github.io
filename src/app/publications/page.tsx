@@ -1,83 +1,77 @@
 import type { Metadata } from "next";
+import { PublicationCitation } from "@/components/citation";
 import { Container, SectionHeading } from "@/components/section";
-import { conferences, inProgress, published } from "@/data/publications";
+import {
+  conferences,
+  inPreparation,
+  published,
+  publicationsUpdated,
+  underReview,
+} from "@/data/publications";
 
 export const metadata: Metadata = {
-  title: "Publications",
-  description: "Published work, manuscripts in progress, and conference presentations.",
+  title: "Publications & Research Outputs",
+  description:
+    "Published papers, manuscripts under review, and work in preparation by Anqi Wang.",
 };
 
-function Citation({
-  authors,
+function PublicationGroup({
   title,
-  venue,
-  year,
-  status,
+  items,
 }: {
-  authors: string;
   title: string;
-  venue?: string;
-  year?: string;
-  status?: string;
+  items: typeof published;
 }) {
   return (
-    <li className="border-b border-sand/80 py-6 first:pt-0 last:border-b-0">
-      <p className="text-[1.02rem] leading-relaxed text-ink/90">
-        {authors} {year ? `(${year}).` : null}{" "}
-        <span className="italic">{title}.</span>
-        {venue ? ` ${venue}` : null}
-        {status ? (
-          <span className="ml-2 inline-flex rounded-full bg-paper-2 px-2.5 py-0.5 text-xs font-medium tracking-wide text-pine">
-            {status}
-          </span>
-        ) : null}
-      </p>
-    </li>
+    <section className="mt-12">
+      <h2 className="font-serif text-2xl text-ink">{title}</h2>
+      <ul className="mt-6">
+        {items.map((item) => (
+          <li
+            key={item.title}
+            className="border-b border-sand/80 py-6 first:pt-0 last:border-b-0"
+          >
+            <PublicationCitation item={item} />
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
 export default function PublicationsPage() {
   return (
     <main id="main" className="pb-20 pt-12 sm:pb-28 sm:pt-16">
-      <Container>
+      <Container className="max-w-3xl">
         <SectionHeading
           as="h1"
           kicker="Outputs"
-          title="Publications"
-          description="Published work, manuscripts in progress, and conference presentations."
+          title="Publications & Research Outputs"
+          description="Peer-reviewed papers, manuscripts under review, and work in preparation. Unfinished work is listed separately and is not presented as published."
         />
-        <div className="mt-12 grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <h2 className="font-serif text-2xl text-ink">Published</h2>
-            <ul className="mt-6">
-              {published.map((item) => (
-                <Citation key={item.title} {...item} />
-              ))}
-            </ul>
-            <h2 className="mt-10 font-serif text-2xl text-ink">Conference</h2>
-            <ul className="mt-6">
-              {conferences.map((item) => (
-                <li key={item.title} className="text-[1.02rem] leading-relaxed text-ink/90">
-                  <p className="font-medium text-ink">{item.event}</p>
-                  <p className="mt-1 text-muted">
-                    {item.location} · {item.date}
-                  </p>
-                  <p className="mt-2">
-                    {item.contribution}: <span className="italic">{item.title}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-serif text-2xl text-ink">Under review / in preparation</h2>
-            <ul className="mt-6">
-              {inProgress.map((item) => (
-                <Citation key={item.title} {...item} />
-              ))}
-            </ul>
-          </div>
-        </div>
+        <PublicationGroup title="Published" items={published} />
+        <PublicationGroup title="Under Review" items={underReview} />
+        <PublicationGroup title="In Preparation" items={inPreparation} />
+        <section className="mt-12">
+          <h2 className="font-serif text-2xl text-ink">Conference</h2>
+          <ul className="mt-6">
+            {conferences.map((item) => (
+              <li
+                key={item.title}
+                className="text-[0.95rem] leading-relaxed break-words text-ink/90 sm:text-base"
+              >
+                <p className="font-medium text-ink">{item.event}</p>
+                <p className="mt-1 text-sm text-muted">
+                  {item.location} · {item.date}
+                </p>
+                <p className="mt-2">
+                  {item.contribution}: {item.title}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <p className="mt-12 text-sm text-muted">Last updated: {publicationsUpdated}</p>
       </Container>
     </main>
   );
