@@ -16,6 +16,7 @@ export type ExperienceItem = {
   collaborative?: boolean;
   homeOrder?: number;
   homeRole?: Localized;
+  homeDateLabel?: Localized;
 };
 
 export const experience: ExperienceItem[] = [
@@ -80,7 +81,7 @@ export const experience: ExperienceItem[] = [
     },
     role: {
       en: "Research Collaboration — Ocean Carbonate-Ion Data Integration",
-      zh: "研究合作 — 海洋碳酸根离子数据整合",
+      zh: "科研合作——海洋碳酸根数据整合",
     },
     org: {
       en: "Tsinghua-affiliated Project",
@@ -92,11 +93,7 @@ export const experience: ExperienceItem[] = [
       zh: "整合全球观测记录与地球系统模式输出，研究海洋碳酸根离子的时空变化；统一物理与生物地球化学预测变量，开展一致性和空间覆盖检查，构建可用于机器学习分析的数据集并完成科学可视化。",
     },
     collaborative: true,
-    homeOrder: 4,
-    homeRole: {
-      en: "Research Collaboration",
-      zh: "研究合作",
-    },
+    homeOrder: 3,
   },
   {
     id: "hankai-biology",
@@ -120,7 +117,6 @@ export const experience: ExperienceItem[] = [
       en: "Taught A-Level, IGCSE, and AP Biology. Prepared lessons and instructional materials, delivered classroom teaching, designed exercises and assessments, and provided differentiated academic support for students with different learning needs.",
       zh: "承担 A-Level、IGCSE 和 AP Biology 课程教学，负责备课、课堂讲授、练习与考核设计，并根据学生的学习基础和需求开展分层辅导。",
     },
-    homeOrder: 3,
   },
   {
     id: "zafu-teaching",
@@ -200,9 +196,17 @@ export const experience: ExperienceItem[] = [
       en: "March 2022–June 2022",
       zh: "2022年3月–2022年6月",
     },
+    homeDateLabel: {
+      en: "2022",
+      zh: "2022",
+    },
     role: {
       en: "Research Intern",
       zh: "科研实习",
+    },
+    homeRole: {
+      en: "Research Internship — Ocean-Current Dependence Modelling",
+      zh: "科研实习——海流依赖结构建模",
     },
     org: {
       en: "Tsinghua University",
@@ -213,6 +217,7 @@ export const experience: ExperienceItem[] = [
       en: "Characterised nonlinear multivariate dependence in ocean-current time series using R-vine copula models.",
       zh: "利用 R-vine copula 模型刻画海流时间序列中的非线性多元相依结构。",
     },
+    homeOrder: 4,
   },
   {
     id: "nyu-intern",

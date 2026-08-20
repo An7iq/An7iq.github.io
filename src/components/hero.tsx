@@ -24,8 +24,8 @@ export function Hero({ locale }: { locale: Locale }) {
   return (
     <section className="hero">
       <Image
-        src={site.portrait.src}
-        alt={locale === "zh" ? siteZh.portraitAlt : site.portrait.alt}
+        src={site.hero.src}
+        alt={locale === "zh" ? siteZh.portraitAlt : site.hero.alt}
         fill
         priority
         sizes="100vw"
@@ -33,7 +33,7 @@ export function Hero({ locale }: { locale: Locale }) {
       />
       <div className="hero-overlay" aria-hidden="true" />
       <Container className="hero-content">
-        <div className="max-w-xl">
+        <div className="max-w-xl md:max-w-[min(34rem,42vw)]">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
             {ui.kicker[locale]}
           </p>

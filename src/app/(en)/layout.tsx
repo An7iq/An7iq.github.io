@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: site.portrait.src,
-        width: site.portrait.width,
-        height: site.portrait.height,
-        alt: site.portrait.alt,
+        url: site.hero.src,
+        width: site.hero.width,
+        height: site.hero.height,
+        alt: site.hero.alt,
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: site.title,
     description: site.description,
-    images: [site.portrait.src],
+    images: [site.hero.src],
   },
   alternates: {
     canonical: site.url,

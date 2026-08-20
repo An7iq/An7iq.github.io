@@ -25,7 +25,7 @@ export function HomeSummary({ locale }: { locale: Locale }) {
                     className="absolute -left-[1.54rem] top-1.5 size-2.5 rounded-full border-2 border-pine bg-paper"
                   />
                   <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-pine">
-                    {copy.dateLabel}
+                    {item.homeDateLabel?.[locale] ?? copy.dateLabel}
                   </p>
                   <p className="mt-1 font-medium leading-snug text-ink">
                     {item.homeRole?.[locale] ?? copy.role}
