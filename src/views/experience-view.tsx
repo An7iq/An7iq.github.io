@@ -40,10 +40,18 @@ function ExperienceList({
             </p>
             <h3 className="mt-2 font-serif text-2xl text-ink">{copy.role}</h3>
             {copy.workTitle ? (
-              <p className="mt-2 text-lg leading-snug text-ink">{copy.workTitle}</p>
+              <p className="mt-2 text-lg leading-snug text-ink">
+                <cite className="font-serif italic">{copy.workTitle}</cite>
+              </p>
             ) : null}
-            {copy.series ? <p className="mt-1 text-muted">{copy.series}</p> : null}
-            <p className="mt-1 text-muted">{orgLine}</p>
+            {copy.detailLines.length ? (
+              <div className="mt-1 space-y-1 text-muted">
+                {copy.detailLines.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
+            ) : null}
+            {orgLine ? <p className="mt-1 text-muted">{orgLine}</p> : null}
             {advisorNames.length ? (
               <p className="mt-2 text-sm text-pine-deep">
                 {advisorLabel}

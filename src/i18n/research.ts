@@ -202,6 +202,8 @@ export const researchZh: Record<string, ResearchOverlay> = {
   },
   "seagrass-restoration": {
     title: "海草修复的空间模拟",
+    supervisor: "Emma Ransome 副教授",
+    coSupervisor: "Yves Plancherel 副教授",
     cardSummary:
       "本研究构建二维元胞自动机模型，比较不同初始种植格局、养分水平和水流速度下的海草生长与修复情景，分析环境条件和空间配置对修复结果的影响。项目重点是探索不同参数组合下的空间演化过程，而不是对某一具体修复地点进行预测。",
     shortSummary:
@@ -210,7 +212,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
     yearLabel: "2023",
     caseStudy: {
       context:
-        "海草修复不仅取决于总种植量，也取决于初始种植的空间格局、养分条件、水动力胁迫、局部邻域相互作用以及生长与损失过程。本研究比较不同参数组合下的空间演化过程，而不是对某一具体修复地点进行预测。\n\n项目于 2023 年 4 月至 9 月在 Imperial College London 完成，属于 MSc in Computational Methods in Ecology and Evolution。导师：Emma Ransome。共同导师：Yves Plancherel。",
+        "海草修复不仅取决于总种植量，也取决于初始种植的空间格局、养分条件、水动力胁迫、局部邻域相互作用以及生长与损失过程。本研究比较不同参数组合下的空间演化过程，而不是对某一具体修复地点进行预测。\n\n项目于 2023 年 4 月至 9 月在 Imperial College London 完成，属于 MSc in Computational Methods in Ecology and Evolution。导师：Emma Ransome 副教授。共同导师：Yves Plancherel 副教授。",
       approachTitle: "模型构建",
       approach:
         "学位论文使用 Python 3.9.12 的面向对象编程，发展了二维空间显式元胞自动机模型。每个网格单元表示局部海草状态，并通过邻域规则以及耦合生长、氮、磷动力学中的环境修正进行更新。一个演化步对应一周。参数取自文献平均值，并可通过用户输入脚本覆盖默认值。\n\n实现了五种初始空间配置：完全覆盖（CCS），所有单元初始占用；空缺（AbS），网格初始为空；随机分布（RIS）；中心种植（CGS）；以及规则间隔的簇状种植（ClGS）。实验同时变化养分水平与流速。养分与流速实验使用合理环境范围内的模拟数据，而非单一野外站点实测。",
@@ -262,8 +264,8 @@ export const researchZh: Record<string, ResearchOverlay> = {
         "项目时段：2023年4月–9月",
         "硕士学位论文，2023",
         "正式题目：Modelling Seagrass Growth Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes",
-        "导师：Emma Ransome",
-        "共同导师：Yves Plancherel",
+        "导师：Emma Ransome 副教授",
+        "共同导师：Yves Plancherel 副教授",
       ],
       relatedMethods: [
         "Cellular automata",
@@ -277,6 +279,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
   },
   "metal-coselection": {
     title: "重金属共选择与抗微生物耐药",
+    supervisor: "Dov Stekel 教授",
     cardSummary:
       "本研究将最低金属浓度共选择模型与土壤中重金属的吸附、解吸和化学形态联系起来，并结合 WHAM VII 的模拟结果，分析金属生物有效性对抗微生物耐药共选择阈值的影响。",
     shortSummary:
@@ -284,7 +287,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
     output: "本科学位论文，2022",
     caseStudy: {
       context:
-        "金属可以共选择抗微生物耐药，但总量对微生物群落实际接触的部分只能提供有限信息。本科学位论文关注土壤化学与形态如何改变与共选择相关的浓度解释。导师：Dov Stekel。",
+        "金属可以共选择抗微生物耐药，但总量对微生物群落实际接触的部分只能提供有限信息。本科学位论文关注土壤化学与形态如何改变与共选择相关的浓度解释。导师：Dov Stekel 教授。",
       data: "学位论文采用化学形态模拟，而非新的野外观测。WHAM VII 在给定土壤化学假设下提供模拟金属浓度与形态，包括土壤有机质与溶解有机质。",
       approachTitle: "方法",
       approach:
@@ -300,7 +303,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
         "University of Nottingham",
         "学位论文完成于 2022 年",
         "正式题目：A General Model of Minimum Metal Concentration Co-Selection for Antimicrobial Resistance Optimised Using WHAM VII",
-        "导师：Dov Stekel",
+        "导师：Dov Stekel 教授",
       ],
       relatedMethods: [
         "化学形态模拟",

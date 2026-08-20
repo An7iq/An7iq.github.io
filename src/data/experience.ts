@@ -14,10 +14,10 @@ export type ExperienceItem = {
   end: string;
   dateLabel: Localized;
   role: Localized;
-  org: Localized;
+  org?: Localized;
   location?: Localized;
   workTitle?: Localized;
-  series?: Localized;
+  detailLines?: Localized<string[]>;
   advisors?: Localized<string[]>;
   advisorLabel?: Localized;
   isbn?: Localized;
@@ -136,23 +136,29 @@ export const experience: ExperienceItem[] = [
       zh: "科普图书翻译",
     },
     workTitle: {
-      en: "HOW & WHY: 有趣的形状和数",
+      en: "Shapes and Numbers",
       zh: "《HOW&WHY美国经典少儿百科知识全书·有趣的形状和数》",
     },
-    series: {
-      en: "HOW & WHY: The Classic American Children's Encyclopedia Series",
-      zh: "",
-    },
-    org: {
-      en: "Jiangsu Phoenix Science and Technology Press",
-      zh: "江苏凤凰科学技术出版社",
+    detailLines: {
+      en: [
+        "Childcraft: The How and Why Library",
+        "Original publisher: World Book",
+        "Chinese edition published by Jiangsu Phoenix Science and Technology Press",
+      ],
+      zh: [
+        "原版：Shapes and Numbers",
+        "所属系列：Childcraft: The How and Why Library",
+        "原出版方：World Book",
+        "中文版出版社：江苏凤凰科学技术出版社",
+        "出版时间：2025年1月",
+      ],
     },
     summary: {
-      en: "Contributed to the English-to-Chinese translation of sections on mathematics in technology, everyday life, and codes, based on Math of Technology, Math in Life, and Math of Codes.",
-      zh: "参与该书的英译中工作，翻译内容涉及技术、日常生活和密码中的数学应用。原稿对应 Math of Technology、Math in Life 和 Math of Codes 三个部分。",
+      en: "Contributed to the English-to-Chinese translation of sections including “Math of Technology,” “Math in Life,” and “Math of Codes.”",
+      zh: "参与“技术中的数学”“生活中的数学”和“密码中的数学”等内容的英译中工作。",
     },
     isbn: {
-      en: "ISBN: 9787571348311",
+      en: "Chinese edition ISBN: 9787571348311",
       zh: "ISBN：9787571348311",
     },
     publicationHref: "https://product.dangdang.com/29841083.html",
@@ -175,17 +181,23 @@ export const experience: ExperienceItem[] = [
       en: "How Does It Happen?",
       zh: "《HOW&WHY美国经典少儿百科知识全书·那是怎么回事》",
     },
-    series: {
-      en: "Childcraft: The How and Why Library",
-      zh: "",
-    },
-    org: {
-      en: "Chinese edition published by Jiangsu Phoenix Science and Technology Press",
-      zh: "江苏凤凰科学技术出版社",
+    detailLines: {
+      en: [
+        "Childcraft: The How and Why Library",
+        "Original publisher: World Book",
+        "Chinese edition published by Jiangsu Phoenix Science and Technology Press",
+      ],
+      zh: [
+        "原版：How Does It Happen?",
+        "所属系列：Childcraft: The How and Why Library",
+        "原出版方：World Book",
+        "中文版出版社：江苏凤凰科学技术出版社",
+        "出版时间：2025年1月",
+      ],
     },
     summary: {
-      en: "Translated the book from English into Chinese, covering introductory explanations of machines, motion, matter, energy, heat, light, sound, and electricity.",
-      zh: "承担该书的英译中工作。该书以通俗方式介绍机械、运动、物质、能量、冷热、光、声音和电等基础科学问题，英文原作为 Childcraft: The How and Why Library — How Does It Happen?",
+      en: "Translated the volume from English into Chinese, covering accessible introductions to machines, motion, matter, energy, heat, light, sound, and electricity.",
+      zh: "承担该书的英译中工作，内容涉及机械、运动、物质、能量、热、光、声音和电等基础科学主题。",
     },
     isbn: {
       en: "Chinese edition ISBN: 9787571348328",
@@ -411,10 +423,10 @@ export function experienceCopy(item: ExperienceItem, locale: Locale) {
   return {
     dateLabel: item.dateLabel[locale],
     role: item.role[locale],
-    org: item.org[locale],
+    org: item.org?.[locale] ?? "",
     location: item.location?.[locale] ?? "",
     workTitle: item.workTitle?.[locale] ?? "",
-    series: item.series?.[locale] ?? "",
+    detailLines: item.detailLines?.[locale] ?? [],
     isbn: item.isbn?.[locale] ?? "",
     summary: item.summary[locale],
   };

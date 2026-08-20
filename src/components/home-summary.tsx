@@ -85,6 +85,12 @@ export function HomeSummary({ locale }: { locale: Locale }) {
                   <p className="mt-1 font-medium leading-snug text-ink">{item.degree}</p>
                   <p className="mt-0.5 text-sm text-muted">{item.institution}</p>
                   <p className="mt-1 text-sm text-pine-deep">{copy.result}</p>
+                  {copy.supervisorLine ? (
+                    <p className="mt-1 text-sm text-pine-deep">{copy.supervisorLine}</p>
+                  ) : null}
+                  {copy.coSupervisorLine ? (
+                    <p className="mt-1 text-sm text-pine-deep">{copy.coSupervisorLine}</p>
+                  ) : null}
                 </li>
               );
             })}

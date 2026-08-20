@@ -380,8 +380,8 @@ export const researchProjects: ResearchProject[] = [
     institution: "Imperial College London",
     yearLabel: "2023",
     degreeLabel: "MSc in Computational Methods in Ecology and Evolution",
-    supervisor: "Emma Ransome",
-    coSupervisor: "Yves Plancherel",
+    supervisor: "Dr Emma Ransome (Associate Professor)",
+    coSupervisor: "Dr Yves Plancherel (Associate Professor)",
     links: [
       {
         label: "View academic GitHub",
@@ -393,7 +393,7 @@ export const researchProjects: ResearchProject[] = [
     caseStudy: {
       skipOverview: true,
       context:
-        "Seagrass restoration depends not only on total planting effort but also on the spatial arrangement of initial planting, nutrient conditions, hydrodynamic stress, local neighbourhood interactions, growth, and loss. This MSc dissertation compared restoration scenarios under controlled assumptions, focusing on spatial evolution across parameter combinations rather than prediction for one real restoration site.\n\nThe project was completed at Imperial College London between April and September 2023 for the MSc in Computational Methods in Ecology and Evolution. Supervisor: Emma Ransome. Co-supervisor: Yves Plancherel.",
+        "Seagrass restoration depends not only on total planting effort but also on the spatial arrangement of initial planting, nutrient conditions, hydrodynamic stress, local neighbourhood interactions, growth, and loss. This MSc dissertation compared restoration scenarios under controlled assumptions, focusing on spatial evolution across parameter combinations rather than prediction for one real restoration site.\n\nThe project was completed at Imperial College London between April and September 2023 for the MSc in Computational Methods in Ecology and Evolution. Supervisor: Dr Emma Ransome (Associate Professor). Co-supervisor: Dr Yves Plancherel (Associate Professor).",
       approachTitle: "Model development",
       approach:
         "The dissertation developed a two-dimensional, spatially explicit cellular-automata model using object-oriented programming in Python 3.9.12. Each grid cell represented local seagrass state and was updated through neighbourhood rules together with environmental modifiers drawn from coupled growth, nitrogen, and phosphorus kinetics. One evolution step corresponded to one week. Parameters were taken from literature averages, with a user-input script available to override defaults.\n\nFive initial spatial configurations were implemented: complete cover (CCS), in which every cell began occupied; absence (AbS), in which the grid began empty; random distribution (RIS); central planting (CGS); and clustered planting (ClGS), with regularly spaced clusters. The experiments also varied nutrient levels and current velocity. Nutrient and current-velocity experiments used mock data selected within reasonable environmental ranges rather than measurements from a single field site.",
@@ -446,8 +446,8 @@ export const researchProjects: ResearchProject[] = [
         "Project period: April–September 2023",
         "MSc dissertation, 2023",
         "Official title: Modelling Seagrass Growth Patterns and Identifying the Impact Factor using Cellular Automata for Restoration Purposes",
-        "Supervisor: Emma Ransome",
-        "Co-supervisor: Yves Plancherel",
+        "Supervisor: Dr Emma Ransome (Associate Professor)",
+        "Co-supervisor: Dr Yves Plancherel (Associate Professor)",
       ],
       relatedMethods: [
         "Cellular automata",
@@ -479,14 +479,14 @@ export const researchProjects: ResearchProject[] = [
     institution: "University of Nottingham",
     yearLabel: "2022",
     degreeLabel: "BSc (Hons) Environmental Science",
-    supervisor: "Dov Stekel",
+    supervisor: "Prof. Dov Stekel",
     links: [],
     featured: false,
     group: "dissertation",
     caseStudy: {
       skipOverview: true,
       context:
-        "Metals can co-select for antimicrobial resistance, but bulk totals are a limited guide to what microbial communities actually encounter. This BSc dissertation asked how soil chemistry and speciation change the interpretation of concentrations associated with co-selection. Supervisor: Dov Stekel.",
+        "Metals can co-select for antimicrobial resistance, but bulk totals are a limited guide to what microbial communities actually encounter. This BSc dissertation asked how soil chemistry and speciation change the interpretation of concentrations associated with co-selection. Supervisor: Prof. Dov Stekel.",
       data: "The dissertation used chemical-speciation modelling rather than a new field campaign. WHAM VII provided modelled metal concentration and speciation under stated soil-chemistry assumptions, including soil organic matter and dissolved organic matter.",
       approachTitle: "Methods",
       approach:
@@ -502,7 +502,7 @@ export const researchProjects: ResearchProject[] = [
         "University of Nottingham",
         "Dissertation completed in 2022",
         "Official title: A General Model of Minimum Metal Concentration Co-Selection for Antimicrobial Resistance Optimised Using WHAM VII",
-        "Supervisor: Dov Stekel",
+        "Supervisor: Prof. Dov Stekel",
       ],
       relatedMethods: [
         "Chemical speciation modelling",
