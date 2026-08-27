@@ -82,7 +82,7 @@ export const publications: Publication[] = [
       "Zhou, Y., Li, Y., Wang, A., Gan, F., Yan, Y., Xia, S., Zhang, X., Wu, X., Zhong, B., & Fan, Y.",
     title:
       "Karst Rice–Tomato Cascade System: A Sustainable Agricultural Strategy for Groundwater Protection",
-    journal: "Advanced Science",
+    journal: "npj Sustainable Agriculture",
     status: "under-review",
     featured: true,
   },

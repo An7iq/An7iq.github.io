@@ -1,4 +1,8 @@
-import type { CaseStudy, ResearchProject } from "@/data/research";
+import type {
+  AbstractBriefing,
+  CaseStudy,
+  ResearchProject,
+} from "@/data/research";
 import type { Locale } from "@/lib/i18n";
 import { researchZh } from "@/i18n/research";
 
@@ -15,9 +19,10 @@ type CaseStudyOverlay = Partial<
 };
 
 export type ResearchOverlay = Partial<
-  Omit<ResearchProject, "caseStudy" | "slug">
+  Omit<ResearchProject, "caseStudy" | "abstractBriefing" | "slug">
 > & {
   caseStudy?: CaseStudyOverlay;
+  abstractBriefing?: Partial<AbstractBriefing>;
 };
 
 function mergeCaseStudy(base: CaseStudy, overlay?: CaseStudyOverlay): CaseStudy {
@@ -51,7 +56,12 @@ export function localizeProject(
   return {
     ...project,
     ...overlay,
-    caseStudy: mergeCaseStudy(project.caseStudy, overlay.caseStudy),
+    caseStudy: project.caseStudy
+      ? mergeCaseStudy(project.caseStudy, overlay.caseStudy)
+      : undefined,
+    abstractBriefing: project.abstractBriefing
+      ? { ...project.abstractBriefing, ...overlay.abstractBriefing }
+      : undefined,
   };
 }
 

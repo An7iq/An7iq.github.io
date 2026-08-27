@@ -42,6 +42,15 @@ export type CaseStudy = {
   };
 };
 
+export type AbstractBriefing = {
+  status: string;
+  presentation: string;
+  overview: string;
+  role: string;
+  keywords: string;
+  abstract: string;
+};
+
 export type ResearchProject = {
   slug: string;
   title: string;
@@ -63,76 +72,51 @@ export type ResearchProject = {
   links: ResearchLink[];
   featured: boolean;
   group: ResearchGroup;
-  caseStudy: CaseStudy;
+  caseStudy?: CaseStudy;
+  abstractBriefing?: AbstractBriefing;
 };
 
 export const researchProjects: ResearchProject[] = [
   {
     slug: "non-rainfall-water",
-    title: "Non-Rainfall Water Across Croplands",
+    title: "Non-Rainfall Water in Agricultural Ecosystems",
     cardSummary:
-      "This multi-site study quantifies overlooked nighttime atmospheric water inputs across contrasting crops and surface conditions. Lysimeter, meteorological, and crop-stage observations are combined with quality control, event detection, XGBoost, and SHAP to identify environmental controls and assess water-budget bias.",
+      "An ongoing first-author study investigating how nocturnal non-rainfall water inputs vary across agricultural surfaces and environmental conditions using multi-site observations and explainable machine learning.",
     featuredSummary:
-      "Multi-site lysimeter and meteorological observations reveal when overlooked nighttime water inputs occur across contrasting croplands. XGBoost and SHAP identify their environmental controls and quantify consequences for agroecosystem water accounting.",
+      "Investigating nocturnal water inputs across agricultural environments through multi-site observations and explainable machine learning.",
     shortSummary:
-      "This multi-site study quantifies overlooked nighttime atmospheric water inputs across contrasting crops and surface conditions.",
+      "Investigating nocturnal water inputs across agricultural environments through multi-site observations and explainable machine learning.",
     tags: [
+      "Non-rainfall water",
       "Ecohydrology",
-      "Agroecosystems",
-      "Lysimeter",
-      "XGBoost",
-      "SHAP",
-      "Hydroclimate",
+      "Agricultural water management",
+      "Explainable machine learning",
     ],
-    cardTags: ["Ecohydrology", "Lysimeter", "XGBoost", "SHAP"],
-    output: "Oral presentation, WCSS 2026 · Manuscript in preparation",
-    image: "/images/research/non-rainfall-water-lysimeter-and-sites.png",
-    imageAlt:
-      "Generic lysimeter schematic beside a map of multi-site cropland study locations in China.",
-    figureCaption:
-      "Lysimeter water-balance instrumentation and the China multi-site observation network used in the non-rainfall water study.",
+    cardTags: [
+      "Non-rainfall water",
+      "Ecohydrology",
+      "Agricultural water management",
+      "Explainable machine learning",
+    ],
+    output: "Ongoing first-author research · WCSS 2026 oral presentation",
+    image: null,
+    imageAlt: "",
     institution: "Zhejiang A&F University, Jiyang College",
     yearLabel: "2025–2026",
     links: [],
     featured: true,
     group: "current",
-    caseStudy: {
-      skipOverview: true,
+    abstractBriefing: {
+      status: "Ongoing first-author research",
+      presentation:
+        "Oral presentation at the 23rd World Congress of Soil Science (WCSS 2026)",
       overview:
-        "This multi-site study quantifies overlooked nighttime atmospheric water inputs across contrasting crops and surface conditions. Lysimeter, meteorological, and crop-stage observations are combined with quality control, event detection, XGBoost, and SHAP to identify environmental controls and assess water-budget bias.",
-      context:
-        "Non-rainfall water, including dew and related nighttime mass gains, is often omitted from agroecosystem water-budget accounts even though it can contribute to surface moisture when rainfall is absent. The project asks when these small fluxes become large enough to matter for water-input accounting across croplands, without treating the resulting associations as proof of a single causal mechanism.",
-      data: "The analysis draws on multi-site lysimeter records together with meteorological, irrigation, precipitation, and crop-stage information. After quality control, the compiled series provide a consistent basis for event detection across crop and land-surface categories.",
-      dataPoints: [
-        "More than 19 observation sites, 2004–2016",
-        "Thirteen crop or surface categories",
-        "Initial records: 28,746",
-        "Records retained after quality control: 23,954",
-      ],
-      approach:
-        "Nighttime mass gains were screened against a 0.02 mm detection threshold and a no-rainfall condition to identify candidate NRW event-days. An XGBoost classifier with class-imbalance handling was then used to relate event occurrence to environmental covariates, and SHAP values were grouped by environmental-process families to interpret relative associations rather than to assert causation.",
-      findings:
-        "The compiled record indicates that NRW events are uncommon but not negligible, and that omitting them can shift water-input accounting. The modelled associations point to temperature and moisture conditions as major controls, with stronger wind sensitivity on bare land. These patterns are reported as observed associations.",
-      findingsPoints: [
-        "NRW event prevalence: approximately 4.07%, corresponding to 975 event-days",
-        "Detection threshold: 0.02 mm",
-        "Omitting NRW produced a median water-accounting bias of approximately 16.9% in the relevant assessment",
-      ],
-      contribution:
-        "Anqi Wang developed the quality-control, event-detection, and XGBoost/SHAP workflows, contributed to interpretation and figure development, and is preparing the first-author manuscript.",
-      outputProse:
-        "The work has been presented orally and is being prepared as a first-author journal manuscript.",
-      outputPoints: [
-        "Oral presentation, 23rd World Congress of Soil Science, Nanjing, June 2026",
-        "First-author manuscript in preparation",
-      ],
-      relatedMethods: [
-        "Environmental data analysis",
-        "Event detection",
-        "XGBoost",
-        "SHAP interpretation",
-        "Water-budget accounting",
-      ],
+        "An ongoing first-author study investigating how nocturnal non-rainfall water inputs vary across agricultural surfaces and environmental conditions using multi-site observations and explainable machine learning.",
+      role: "Research design · Data analysis · Modelling · Interpretation · Presentation",
+      keywords:
+        "Non-rainfall water · Ecohydrology · Agricultural water management · Explainable machine learning",
+      abstract:
+        "Non-rainfall water (NRW)—including dew, fog, and vapor adsorption—constitutes a hidden yet critical component of cropland water input that is often overlooked in hydrological and agricultural assessments. Using multi-year observations from eight long-term experimental stations across China, this study quantified the magnitude, variability, and climatic controls of NRW across ten representative cropland types, including millet, soybean, spring corn, winter wheat, and peanut. Continuous measurements of meteorological variables, evapotranspiration (ET), and soil temperature were analysed using structural equation modelling (SEM) and SHAP-based attribution to disentangle direct and indirect climatic influences on NRW formation and its contribution to the crop water balance. Results showed that NRW accounted for 3–12% of total water inputs and 5–18% of ET, with nighttime condensation being the dominant process. Relative humidity and radiative cooling were identified as the strongest positive drivers, while wind speed and vapor pressure deficit exhibited negative effects. SEM analysis revealed that temperature and humidity jointly mediated surface energy exchange, reinforcing nocturnal cooling essential for condensation. Regional differences in factor sensitivity reflected local climate regimes rather than crop-specific variations, indicating that NRW represents a stable supplementary water source under precipitation variability. When NRW was excluded from the water balance, the calculated crop water use efficiency (WUE)—defined as the ratio of net primary productivity to total water input—was systematically overestimated, particularly in semi-arid regions where NRW contributions were highest. This bias propagates through both field-scale irrigation evaluations and large-scale agricultural water modelling, leading to inflated assessments of crop performance and resource efficiency. Incorporating NRW into water accounting therefore provides a more realistic estimation of WUE, bridges the gap between measured ET and modeled water use, and enhances the accuracy of agricultural water management under changing climate conditions. These findings emphasize the need to treat NRW as a routine component of the water budget, supporting climate-smart irrigation planning and sustainable crop production in water-limited environments.",
     },
   },
   {

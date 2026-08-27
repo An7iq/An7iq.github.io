@@ -64,6 +64,23 @@ function ProjectFigures({ figures }: { figures: CaseStudyFigure[] }) {
   );
 }
 
+function BriefingField({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div>
+      <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-pine">
+        {label}
+      </h2>
+      <p className="mt-2 text-[1.02rem] leading-relaxed text-ink/85">{value}</p>
+    </div>
+  );
+}
+
 export function ProjectView({
   project,
   locale,
@@ -71,7 +88,62 @@ export function ProjectView({
   project: ResearchProject;
   locale: Locale;
 }) {
+  if (project.abstractBriefing) {
+    const briefing = project.abstractBriefing;
+    return (
+      <main id="main" className="pb-20 pt-12 sm:pb-28 sm:pt-16">
+        <Container className="max-w-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pine">
+            {ui.projectKicker[locale]}
+          </p>
+          <h1 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-5xl">
+            {project.title}
+          </h1>
+          <div className="mt-10 space-y-8 rounded-2xl border border-sand bg-white p-6 shadow-[0_10px_28px_rgba(27,36,32,0.08)] sm:p-8">
+            <BriefingField
+              label={ui.briefingStatus[locale]}
+              value={briefing.status}
+            />
+            <BriefingField
+              label={ui.briefingPresentation[locale]}
+              value={briefing.presentation}
+            />
+            <BriefingField
+              label={ui.briefingOverview[locale]}
+              value={briefing.overview}
+            />
+            <BriefingField
+              label={ui.briefingRole[locale]}
+              value={briefing.role}
+            />
+            <BriefingField
+              label={ui.briefingKeywords[locale]}
+              value={briefing.keywords}
+            />
+            <section className="border-t border-sand pt-8">
+              <h2 className="font-serif text-2xl text-ink">
+                {ui.abstractHeading[locale]}
+              </h2>
+              <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/85">
+                {briefing.abstract}
+              </p>
+            </section>
+          </div>
+          <Link
+            href={localizeHref("/research/", locale)}
+            className="mt-10 inline-block text-sm font-medium text-pine hover:text-pine-deep"
+          >
+            ← {ui.allProjectsBack[locale]}
+          </Link>
+        </Container>
+      </main>
+    );
+  }
+
   const study = project.caseStudy;
+  if (!study) {
+    return null;
+  }
   const figuresAfter = (title: string) =>
     study.figures?.filter((figure) => figure.after === title) ?? [];
   const approachTitle = study.approachTitle ?? ui.approachDefault[locale];
