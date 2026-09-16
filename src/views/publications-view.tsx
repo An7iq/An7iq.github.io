@@ -3,6 +3,7 @@ import { Container, SectionHeading } from "@/components/section";
 import {
   conferences,
   inPreparation,
+  preprints,
   published,
   underReview,
 } from "@/data/publications";
@@ -18,6 +19,8 @@ function PublicationGroup({
   items: typeof published;
   locale: Locale;
 }) {
+  if (items.length === 0) return null;
+
   return (
     <section className="mt-10 overflow-hidden rounded-2xl border border-sand bg-white p-6 shadow-[0_10px_28px_rgba(27,36,32,0.07)] sm:p-8">
       <h2 className="font-serif text-2xl text-ink">{title}</h2>
@@ -48,6 +51,11 @@ export function PublicationsView({ locale }: { locale: Locale }) {
         <PublicationGroup
           title={ui.published[locale]}
           items={published}
+          locale={locale}
+        />
+        <PublicationGroup
+          title={ui.preprints[locale]}
+          items={preprints}
           locale={locale}
         />
         <PublicationGroup
