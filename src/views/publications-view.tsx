@@ -3,6 +3,7 @@ import { Container, SectionHeading } from "@/components/section";
 import {
   conferences,
   inPreparation,
+  preprints,
   published,
   underReview,
 } from "@/data/publications";
@@ -18,6 +19,8 @@ function PublicationGroup({
   items: typeof published;
   locale: Locale;
 }) {
+  if (!items.length) return null;
+
   return (
     <section className="mt-10 overflow-hidden rounded-2xl border border-sand bg-white p-6 shadow-[0_10px_28px_rgba(27,36,32,0.07)] sm:p-8">
       <h2 className="font-serif text-2xl text-ink">{title}</h2>
@@ -51,6 +54,11 @@ export function PublicationsView({ locale }: { locale: Locale }) {
           locale={locale}
         />
         <PublicationGroup
+          title={ui.preprints[locale]}
+          items={preprints}
+          locale={locale}
+        />
+        <PublicationGroup
           title={ui.underReview[locale]}
           items={underReview}
           locale={locale}
@@ -70,7 +78,9 @@ export function PublicationsView({ locale }: { locale: Locale }) {
               >
                 <p className="font-medium text-ink">{item.event}</p>
                 <p className="mt-1 text-sm text-muted">
-                  {locale === "zh" ? "中国南京 · 2026年6月" : `${item.location} · ${item.date}`}
+                  {locale === "zh"
+                    ? "中国南京 · 2026年6月11日"
+                    : `${item.location} · ${item.date}`}
                 </p>
                 <p className="mt-2">
                   {item.contribution === "Oral presentation"
@@ -78,6 +88,25 @@ export function PublicationsView({ locale }: { locale: Locale }) {
                     : item.contribution}
                   : {item.title}
                 </p>
+                {item.note === "conferenceTitleNote" ? (
+                  <p className="mt-2 text-sm text-muted">
+                    {ui.conferenceTitleNote[locale]}
+                  </p>
+                ) : item.note ? (
+                  <p className="mt-2 text-sm text-muted">{item.note}</p>
+                ) : null}
+                {item.url ? (
+                  <p className="mt-2">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-pine hover:text-pine-deep"
+                    >
+                      {ui.conferenceProgramme[locale]}
+                    </a>
+                  </p>
+                ) : null}
               </li>
             ))}
           </ul>
