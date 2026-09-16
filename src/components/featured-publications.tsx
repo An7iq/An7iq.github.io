@@ -55,7 +55,7 @@ export function FeaturedPublications({ locale }: { locale: Locale }) {
                     href={doiHref(item.doi)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="break-all text-pine hover:text-pine-deep"
+                    className="break-words text-pine hover:text-pine-deep"
                   >
                     https://doi.org/{item.doi}
                   </a>
