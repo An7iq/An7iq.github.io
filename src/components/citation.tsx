@@ -123,7 +123,7 @@ function PublicationLink({ item }: { item: Publication }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="break-all text-pine hover:text-pine-deep"
+        className="text-pine hover:text-pine-deep"
       >
         {label}
       </a>
