@@ -89,6 +89,21 @@ export function ProjectCard({
           </ul>
           <div className="mt-auto pt-3">
             <p className="text-[0.72rem] leading-snug text-muted">{project.output}</p>
+            {project.links.length > 0 ? (
+              <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
+                {project.links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[0.72rem] font-medium text-pine hover:text-pine-deep"
+                  >
+                    {link.label === "DOI" ? ui.doiLink[locale] : link.label}
+                  </a>
+                ))}
+              </div>
+            ) : null}
             <Link
               href={href}
               className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-pine hover:text-pine-deep"
@@ -136,6 +151,21 @@ export function ProjectCard({
         <p className="mt-auto border-t border-sand pt-3 text-sm text-ink/80">
           {project.output}
         </p>
+        {project.links.length > 0 ? (
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+            {project.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-pine hover:text-pine-deep"
+              >
+                {link.label === "DOI" ? ui.doiLink[locale] : link.label}
+              </a>
+            ))}
+          </div>
+        ) : null}
         <Link
           href={href}
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-pine hover:text-pine-deep"

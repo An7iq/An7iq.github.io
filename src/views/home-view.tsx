@@ -1,4 +1,5 @@
 import { CvStrip } from "@/components/cv-strip";
+import { FeaturedPublications } from "@/components/featured-publications";
 import { FeaturedResearch } from "@/components/featured-research";
 import { Hero } from "@/components/hero";
 import { HomeSummary } from "@/components/home-summary";
@@ -8,6 +9,7 @@ export function HomeView({ locale }: { locale: Locale }) {
   return (
     <main id="main">
       <Hero locale={locale} />
+      <FeaturedPublications locale={locale} />
       <FeaturedResearch locale={locale} />
       <HomeSummary locale={locale} />
       <CvStrip locale={locale} />
