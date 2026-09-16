@@ -16,7 +16,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
     abstractBriefing: {
       status: "正在进行的第一作者研究",
       presentation:
-        "第23届世界土壤学大会（WCSS 2026）口头报告",
+        "第23届世界土壤学大会（WCSS 2026）口头报告，南京：Neglecting Non-Rainfall Water Contributions Results in an Overestimation of Crop Water Use Efficiency",
       overview:
         "一项正在进行的第一作者研究，利用多站点观测和可解释机器学习，考察夜间非降水水分输入如何随农田地表类型和环境条件变化。",
       role: "研究设计 · 数据分析 · 模型构建 · 结果解释 · 会议报告",
@@ -32,7 +32,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
       "基于长江中下游四个水文站 1960–2022 年的洪水记录，结合非平稳性诊断、GAMLSS 与 RF–SHAP，比较不同河段洪水分布变化及其与水文气候和水库调节指标的统计关联。",
     shortSummary:
       "基于长江中下游四个水文站 1960–2022 年洪水记录，比较不同河段洪水分布变化及其与水文气候和水库调节指标的统计关联。",
-    output: "投稿至 Journal of Hydrology: Regional Studies｜审稿中",
+    output: "已发表于 Journal of Hydrology: Regional Studies",
     imageAlt: "长江中下游流域图，标示四个水文站与三峡大坝。",
     figureCaption:
       "长江中下游研究区，水文站包括宜昌、螺山、汉口与大通。",
@@ -52,8 +52,11 @@ export const researchZh: Record<string, ResearchOverlay> = {
         "分析比较了洪水频率分布在站点之间及随时间的变化，以及这些变化如何与水文气候和水库相关指数共变。结果按统计关联报告。",
       contribution:
         "王安奇参与水文时间序列分析、非平稳诊断、GAMLSS 建模，以及水文气候与水库相关关联的解释。",
-      outputProse: "稿件正在审稿。",
-      outputPoints: ["审稿中，期刊：Journal of Hydrology: Regional Studies"],
+      outputProse: "论文已发表于 Journal of Hydrology: Regional Studies（文章号 103930）。",
+      outputPoints: [
+        "已发表，期刊：Journal of Hydrology: Regional Studies, 67, 103930",
+        "DOI: https://doi.org/10.1016/j.ejrh.2026.103930",
+      ],
       relatedMethods: [
         "非平稳诊断",
         "GAMLSS",
@@ -109,7 +112,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
       "基于 2000–2023 年 27 个城市的多源空间数据，分析长三角生态韧性的时空演变、追赶过程与碳承载约束，并利用 Random Forest、SHAP 与结构方程模型解释城市间差异。",
     shortSummary:
       "基于 2000–2023 年 27 个城市的多源空间数据，分析长三角生态韧性的时空演变、追赶过程与碳承载约束。",
-    output: "投稿至 Cities｜审稿中",
+    output: "已发表于 Cities",
     imageAlt: "2000–2023 年长三角生态潜力、弹性、稳定性与韧性多年地图。",
     figureCaption:
       "2000–2023 年长三角城市群生态潜力、弹性、稳定性与韧性的时空演变。",
@@ -128,9 +131,12 @@ export const researchZh: Record<string, ResearchOverlay> = {
       findings:
         "地图与模型描述了 2000–2023 年韧性相关指标的演变，以及追赶过程如何与持续的空间差异并存。分析中报告的收敛拟合约为 R² = 0.972，按统计关联理解。",
       contribution:
-        "王安奇为目前审稿中的合作论文贡献了定量分析、结果解释与稿件撰写。",
-      outputProse: "稿件正在审稿。",
-      outputPoints: ["审稿中，期刊：Cities"],
+        "王安奇为已发表的合作论文贡献了定量分析、结果解释与稿件撰写。",
+      outputProse: "论文已发表于 Cities（文章号 107581）。",
+      outputPoints: [
+        "已发表，期刊：Cities, 179, 107581",
+        "DOI: https://doi.org/10.1016/j.cities.2026.107581",
+      ],
       relatedMethods: [
         "地理空间分析",
         "Random Forest",
@@ -340,7 +346,7 @@ export const researchZh: Record<string, ResearchOverlay> = {
       outputPoints: [
         "科研实习，纽约大学，2021年5月–7月",
         "项目导师：David Holland 教授",
-        "Wang, A. (2023). The long-term diffusion of dumped wastewater from Japan in the Pacific Ocean. In Environmental Pollution Governance and Ecological Remediation Technology (pp. 261–269). Springer.",
+        "Wang, A. (2023). The long-term diffusion of dumped wastewater from Japan in the Pacific Ocean. In Environmental Pollution Governance and Ecological Remediation Technology (pp. 261–269). Springer. https://doi.org/10.1007/978-3-031-25284-6_28",
       ],
       relatedMethods: ["海洋环流模拟", "扩散模拟", "污染物输运"],
     },

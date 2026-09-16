@@ -109,7 +109,7 @@ export const researchProjects: ResearchProject[] = [
     abstractBriefing: {
       status: "Ongoing first-author research",
       presentation:
-        "Oral presentation at the 23rd World Congress of Soil Science (WCSS 2026)",
+        "Oral presentation at the 23rd World Congress of Soil Science (WCSS 2026), Nanjing: Neglecting Non-Rainfall Water Contributions Results in an Overestimation of Crop Water Use Efficiency",
       overview:
         "An ongoing first-author study investigating how nocturnal non-rainfall water inputs vary across agricultural surfaces and environmental conditions using multi-site observations and explainable machine learning.",
       role: "Research design · Data analysis · Modelling · Interpretation · Presentation",
@@ -130,7 +130,7 @@ export const researchProjects: ResearchProject[] = [
       "This study examines how flood-frequency distributions changed along the middle–lower Yangtze River from 1960 to 2022.",
     tags: ["Hydrology", "Flood Extremes", "GAMLSS", "Hydroclimate", "Time Series"],
     cardTags: ["Hydrology", "Flood Extremes", "GAMLSS", "Hydroclimate"],
-    output: "Under review at Journal of Hydrology: Regional Studies",
+    output: "Published in Journal of Hydrology: Regional Studies",
     image: "/images/research/yangtze-flood-frequency-study-area.png",
     imageAlt:
       "Map of the middle–lower Yangtze River Basin showing four hydrological stations and the Three Gorges Dam.",
@@ -138,7 +138,12 @@ export const researchProjects: ResearchProject[] = [
       "Study area in the middle–lower Yangtze River Basin, with hydrological stations at Yichang, Luoshan, Hankou and Datong.",
     institution: "Zhejiang A&F University, Jiyang College",
     yearLabel: "2025–2026",
-    links: [],
+    links: [
+      {
+        label: "DOI",
+        href: "https://doi.org/10.1016/j.ejrh.2026.103930",
+      },
+    ],
     featured: true,
     group: "current",
     caseStudy: {
@@ -160,9 +165,10 @@ export const researchProjects: ResearchProject[] = [
       contribution:
         "Anqi Wang contributed to the hydrologic time-series analysis, nonstationarity diagnostics, GAMLSS modelling, and interpretation of hydroclimatic and reservoir-related associations.",
       outputProse:
-        "The manuscript is under review.",
+        "The paper is published in Journal of Hydrology: Regional Studies (article 103930).",
       outputPoints: [
-        "Under review at Journal of Hydrology: Regional Studies",
+        "Published in Journal of Hydrology: Regional Studies, 67, 103930",
+        "DOI: https://doi.org/10.1016/j.ejrh.2026.103930",
       ],
       relatedMethods: [
         "Nonstationarity diagnostics",
@@ -249,7 +255,7 @@ export const researchProjects: ResearchProject[] = [
       "Urban Systems",
     ],
     cardTags: ["Spatial Ecology", "Random Forest", "SHAP", "SEM"],
-    output: "Under review at Cities",
+    output: "Published in Cities",
     image: "/images/research/yangtze-delta-ecological-resilience-2000-2023.png",
     imageAlt:
       "Multi-year maps of ecological potential, elasticity, stability and resilience across the Yangtze River Delta, 2000–2023.",
@@ -257,7 +263,12 @@ export const researchProjects: ResearchProject[] = [
       "Spatiotemporal evolution of ecological potential, elasticity, stability and resilience across the Yangtze River Delta urban agglomeration, 2000–2023.",
     institution: "Zhejiang A&F University, Jiyang College",
     yearLabel: "2025–2026",
-    links: [],
+    links: [
+      {
+        label: "DOI",
+        href: "https://doi.org/10.1016/j.cities.2026.107581",
+      },
+    ],
     featured: true,
     group: "current",
     caseStudy: {
@@ -277,10 +288,13 @@ export const researchProjects: ResearchProject[] = [
       findings:
         "The maps and models describe how resilience-related indicators evolved from 2000 to 2023 and how catch-up dynamics sit alongside persistent spatial differences. A reported convergence fit of approximately R² = 0.972 characterises the catch-up relationship in the analysis; it should be read as a statistical association, not as evidence of a causal mechanism.",
       contribution:
-        "Anqi Wang contributed quantitative analysis, interpretation, and manuscript development to the collaborative paper now under review.",
+        "Anqi Wang contributed quantitative analysis, interpretation, and manuscript development to the collaborative paper.",
       outputProse:
-        "The manuscript is under review.",
-      outputPoints: ["Under review at Cities"],
+        "The paper is published in Cities (article 107581).",
+      outputPoints: [
+        "Published in Cities, 179, 107581",
+        "DOI: https://doi.org/10.1016/j.cities.2026.107581",
+      ],
       relatedMethods: [
         "Geospatial analysis",
         "Random Forest",
@@ -562,7 +576,12 @@ export const researchProjects: ResearchProject[] = [
     yearLabel: "2021",
     supervisor: "Prof. David Holland",
     supervisorLabel: "Academic mentor",
-    links: [],
+    links: [
+      {
+        label: "DOI",
+        href: "https://doi.org/10.1007/978-3-031-25284-6_28",
+      },
+    ],
     featured: false,
     group: "collaborative",
     caseStudy: {
@@ -582,7 +601,7 @@ export const researchProjects: ResearchProject[] = [
       outputPoints: [
         "Research internship, New York University, May–July 2021",
         "Academic mentor: Prof. David Holland",
-        "Wang, A. (2023). The long-term diffusion of dumped wastewater from Japan in the Pacific Ocean. In Environmental Pollution Governance and Ecological Remediation Technology (pp. 261–269). Springer.",
+        "Wang, A. (2023). The long-term diffusion of dumped wastewater from Japan in the Pacific Ocean. In Environmental Pollution Governance and Ecological Remediation Technology (pp. 261–269). Springer. https://doi.org/10.1007/978-3-031-25284-6_28",
       ],
       relatedMethods: [
         "Ocean circulation modelling",
