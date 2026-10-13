@@ -1,4 +1,8 @@
-export type PublicationStatus = "published" | "under-review" | "in-preparation";
+export type PublicationStatus =
+  | "published"
+  | "preprint"
+  | "under-review"
+  | "in-preparation";
 
 export type Publication = {
   authors: string;
@@ -6,10 +10,15 @@ export type Publication = {
   year?: string;
   journal?: string;
   volume?: string;
+  issue?: string;
   article?: string;
   book?: string;
   pages?: string;
   publisher?: string;
+  doi?: string;
+  url?: string;
+  note?: string;
+  openAccess?: "gold";
   status: PublicationStatus;
   featured?: boolean;
 };
@@ -20,70 +29,95 @@ export type ConferenceOutput = {
   date: string;
   contribution: string;
   title: string;
+  note?: string;
+  url?: string;
 };
 
 export const statusLabels: Record<PublicationStatus, string> = {
   published: "Published",
+  preprint: "Preprint",
   "under-review": "Under review",
   "in-preparation": "In preparation",
 };
 
+export function doiHref(doi: string) {
+  return doi.startsWith("http") ? doi : `https://doi.org/${doi}`;
+}
+
 export const publications: Publication[] = [
   {
     authors:
-      "Hu, Y., Chen, Y., Duan, B., Dong, T., Qian, X., Li, Z., Fan, Y., Wang, A., Gao, Y., & Chen, Y.",
+      "Xu, C., Wang, A., Zhou, S., He, H., Shi, L., Xiao, R., Miao, S., Qin, H., Guo, Z., Zhang, X., & Fan, Y.",
     year: "2026",
     title:
-      "Closing maize yield gaps in North China Plain: Based on plot-scale farmer survey and simulation",
-    journal: "Agricultural Systems",
-    volume: "235",
-    article: "104697",
+      "Spatiotemporal evolution of ecological resilience, catch-up dynamics, and carbon-carrying constraints in the Yangtze River Delta urban agglomeration (2000–2023)",
+    journal: "Cities",
+    volume: "179",
+    article: "107581",
+    doi: "10.1016/j.cities.2026.107581",
     status: "published",
     featured: true,
   },
   {
     authors:
-      "Su, J., Fan, Y., Zhang, X., Liu, W., He, H., Shi, L., Du, X., Gang, F., Guo, M., Yu, Y., Yan, Y., Wang, A., & Gao, J.",
+      "Xu, C., Huang, Z., Wang, A., Xiao, Y., Zhang, T., Qin, H., & Guo, Z.",
     year: "2026",
     title:
-      "Community-specific thresholds structure a global biotic-climatic-edaphic control gradient of grassland productivity",
+      "Nonstationary flood frequency analysis and drivers in the middle-lower Yangtze River, China",
+    journal: "Journal of Hydrology: Regional Studies",
+    volume: "67",
+    article: "103930",
+    doi: "10.1016/j.ejrh.2026.103930",
+    openAccess: "gold",
+    status: "published",
+    featured: true,
+  },
+  {
+    authors:
+      "Hu, Y., Chen, Y., Duan, B., Dong, T., Qian, X., Li, Z., Fan, Y., Wang, A., Yang, S., Gao, W., & Chen, Y.",
+    year: "2026",
+    title:
+      "Closing maize yield gaps in North China plain: Based on plot-scale farmer survey and simulation",
+    journal: "Agricultural Systems",
+    volume: "235",
+    article: "104697",
+    doi: "10.1016/j.agsy.2026.104697",
+    status: "published",
+    featured: true,
+  },
+  {
+    authors:
+      "Su, J., Fan, Y., Zhang, X., Liu, W., He, H., Shi, L., Du, X., Gan, F., Guo, X., Yu, M., Yan, Y., Zhang, X., Wang, N., Wang, A., & Gao, J.",
+    year: "2026",
+    title:
+      "Community-specific thresholds structure a global biotic–climatic–edaphic control gradient of grassland productivity",
     journal: "Ecological Frontiers",
+    volume: "46",
+    issue: "3",
+    pages: "1198–1211",
+    doi: "10.1016/j.ecofro.2026.01.009",
     status: "published",
   },
   {
     authors: "Wang, A.",
     year: "2023",
     title:
-      "The long-term diffusion of dumped wastewater from Japan in the Pacific Ocean",
+      "The Long-term Diffusion of Dumped Wastewater from Japan in the Pacific Ocean",
     book: "Environmental Pollution Governance and Ecological Remediation Technology",
     pages: "pp. 261–269",
     publisher: "Springer",
+    doi: "10.1007/978-3-031-25284-6_28",
     status: "published",
   },
   {
     authors:
-      "Chen, X., Huang, Z., Wang, A., Xiao, Y., Zhang, T., Qin, H., & Guo, Z.",
-    title:
-      "Nonstationary Flood Frequency Analysis and Drivers in the Middle–Lower Yangtze River",
-    journal: "Journal of Hydrology: Regional Studies",
-    status: "under-review",
-    featured: true,
-  },
-  {
-    authors:
-      "Fan, Y., Chen, X., Wang, A., Zhou, S., He, H., Shi, L., Xiao, R., Miao, S., Qin, H., Guo, Z., & Zhang, X.",
-    title:
-      "Spatiotemporal evolution of ecological resilience, catch-up dynamics, and carbon-carrying constraints in the Yangtze River Delta urban agglomeration",
-    journal: "Cities",
-    status: "under-review",
-  },
-  {
-    authors:
       "Zhou, Y., Li, Y., Wang, A., Gan, F., Yan, Y., Xia, S., Zhang, X., Wu, X., Zhong, B., & Fan, Y.",
+    year: "2025",
     title:
       "Karst Rice–Tomato Cascade System: A Sustainable Agricultural Strategy for Groundwater Protection",
-    journal: "npj Sustainable Agriculture",
-    status: "under-review",
+    journal: "Research Square",
+    doi: "10.21203/rs.3.rs-7845171/v1",
+    status: "preprint",
     featured: true,
   },
   {
@@ -102,6 +136,7 @@ export const publications: Publication[] = [
 ];
 
 export const published = publications.filter((item) => item.status === "published");
+export const preprints = publications.filter((item) => item.status === "preprint");
 export const underReview = publications.filter(
   (item) => item.status === "under-review",
 );
@@ -115,11 +150,13 @@ export const conferences: ConferenceOutput[] = [
   {
     event: "23rd World Congress of Soil Science",
     location: "Nanjing, China",
-    date: "June 2026",
+    date: "11 June 2026",
     contribution: "Oral presentation",
     title:
-      "Influence of Climatic Factors on Non-Rainfall Water Formation Across Diverse Croplands",
+      "Neglecting Non-Rainfall Water Contributions Results in an Overestimation of Crop Water Use Efficiency",
+    note: "conferenceTitleNote",
+    url: "https://www.23wcss.org.cn/upload/b2ec9673-4713-43c5-99a8-45883d272e6a/20260610/51301781076187504.pdf",
   },
 ];
 
-export const publicationsUpdated = "August 2026";
+export const publicationsUpdated = "September 2026";

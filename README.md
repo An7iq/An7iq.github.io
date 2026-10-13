@@ -33,7 +33,7 @@ Keep factual updates in the data files rather than inside page components:
 | --- | --- |
 | `src/data/site.ts` | Name, intro, contact links, navigation |
 | `src/data/research.ts` | Research projects (`featured: true` appears on the homepage) |
-| `src/data/publications.ts` | Published, under review / in preparation, conference outputs |
+| `src/data/publications.ts` | Published, preprint, in-preparation, and conference outputs |
 | `src/data/experience.ts` | Appointments |
 | `src/data/education.ts` | Degrees |
 | `src/data/skills.ts` | Methods and tools |
